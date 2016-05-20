@@ -6,6 +6,7 @@ import java.awt.*;
 
 /**
  * Created by piotr on 20.05.2016.
+ *
  */
 public class MenuPanelBuilder {
 
@@ -18,16 +19,18 @@ public class MenuPanelBuilder {
 
     static private JButton buildTextButton(String text) {
         JButton button = new JButton(text);
+
         button.setBackground(Color.black);
         button.setBorder(BorderFactory.createEmptyBorder());
         button.setFocusPainted(false);
+        button.setContentAreaFilled(false);
+
         button.setFont(new Font("Serif", Font.BOLD, 55));
         button.setForeground(Color.white);
-        button.setContentAreaFilled(false);
+
+        button.addActionListener(MainFrame.getInstance());
         return button;
     }
-
-
 
     static public JPanel buildMainMenuPanel() {
         JPanel panel = new JPanel();
@@ -102,7 +105,16 @@ public class MenuPanelBuilder {
         return panel;
     }
 
-    static public JPanel buildGameOverPanel() { return new JPanel(); }
-    static public JPanel buildNewRecordPanel() { return new JPanel(); }
+    static public JPanel buildGameOverPanel() {
+        JPanel panel = new JPanel(new BorderLayout());
+        panel.add(createTitle("GAME OVER", 80), BorderLayout.CENTER);
+        return panel;
+    }
+
+    static public JPanel buildNewRecordPanel() {
+        JPanel panel = new JPanel(new BorderLayout());
+        panel.add(createTitle("NEW RECORD!", 80), BorderLayout.CENTER);
+        return panel;
+    }
 
 }
