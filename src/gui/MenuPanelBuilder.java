@@ -1,0 +1,108 @@
+package gui;
+
+import javax.swing.*;
+import javax.swing.plaf.basic.BasicArrowButton;
+import java.awt.*;
+
+/**
+ * Created by piotr on 20.05.2016.
+ */
+public class MenuPanelBuilder {
+
+    static public JLabel createTitle(String text, int size) {
+        JLabel title = new JLabel(text, SwingConstants.CENTER);
+        title.setFont(new Font("Serif", Font.BOLD, size));
+        title.setForeground(Color.white);
+        return title;
+    }
+
+    static private JButton buildTextButton(String text) {
+        JButton button = new JButton(text);
+        button.setBackground(Color.black);
+        button.setBorder(BorderFactory.createEmptyBorder());
+        button.setFocusPainted(false);
+        button.setFont(new Font("Serif", Font.BOLD, 55));
+        button.setForeground(Color.white);
+        button.setContentAreaFilled(false);
+        return button;
+    }
+
+
+
+    static public JPanel buildMainMenuPanel() {
+        JPanel panel = new JPanel();
+        panel.setLayout(new GridBagLayout());
+        panel.setBackground(Color.black);
+
+        GridBagConstraints gBC = new GridBagConstraints();
+        gBC.fill = GridBagConstraints.VERTICAL;
+        gBC.ipady = 40;
+        gBC.gridwidth = 3;
+
+        gBC.gridy = 0;
+        panel.add(createTitle("LUNAR LANDER", 90), gBC);
+
+        gBC.gridy = 1;
+        panel.add(buildTextButton("START"), gBC);
+
+        gBC.gridy = 2;
+        panel.add(buildTextButton("RECORDS"), gBC);
+
+        gBC.gridy = 3;
+        panel.add(buildTextButton("EXIT"), gBC);
+
+        return panel;
+    }
+
+    static public JPanel buildDifficultyPanel() {
+        JPanel panel = new JPanel();
+        panel.setLayout(new GridBagLayout());
+        panel.setBackground(Color.black);
+
+        GridBagConstraints gBC = new GridBagConstraints();
+        gBC.fill = GridBagConstraints.VERTICAL;
+        gBC.gridwidth = 3;
+
+        gBC.gridy = 0;
+        panel.add(createTitle("CHOOSE DIFFICULTY:", 40), gBC);
+
+        gBC.gridy = 1;
+        panel.add(buildTextButton("EASY"), gBC);
+
+        gBC.gridy = 2;
+        panel.add(buildTextButton("MEDIUM"), gBC);
+
+        gBC.gridy = 3;
+        panel.add(buildTextButton("HARD"), gBC);
+
+        return panel;
+    }
+
+    static public JPanel buildRecordsPanel() {
+        JPanel panel = new JPanel();
+        panel.setLayout(new BorderLayout());
+        panel.setBackground(Color.black);
+
+        panel.add(createTitle("RECORDS", 60), BorderLayout.NORTH);
+
+        BasicArrowButton leftButton = new BasicArrowButton(SwingConstants.WEST);
+        panel.add(leftButton, BorderLayout.WEST);
+
+        BasicArrowButton rightButton = new BasicArrowButton(SwingConstants.EAST);
+        panel.add(rightButton, BorderLayout.EAST);
+
+        JPanel backButtonPanel= new JPanel(new FlowLayout(FlowLayout.LEADING)); //rozwiązane w ten sposób, żeby był tam gdzie trzeba
+        backButtonPanel.add(buildTextButton("BACK"));
+        backButtonPanel.setBackground(Color.black);
+        panel.add(backButtonPanel,  BorderLayout.SOUTH);
+
+        JLabel cos = new JLabel("TABELA", SwingConstants.CENTER);
+        panel.add(cos, BorderLayout.CENTER);
+
+        return panel;
+    }
+
+    static public JPanel buildGameOverPanel() { return new JPanel(); }
+    static public JPanel buildNewRecordPanel() { return new JPanel(); }
+
+}
