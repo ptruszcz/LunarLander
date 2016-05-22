@@ -3,6 +3,7 @@ package gui;
 import javax.swing.*;
 import javax.swing.plaf.basic.BasicArrowButton;
 import java.awt.*;
+import java.awt.event.ActionListener;
 
 /**
  * Created by piotr on 20.05.2016.
@@ -10,7 +11,13 @@ import java.awt.*;
  */
 public class MenuPanelBuilder {
 
-    static public JLabel createTitle(String text, int size) {
+    public static ActionListener context;
+
+    public static void passContext(ActionListener actionListener) {
+       context = actionListener;
+    }
+
+    static private JLabel createTitle(String text, int size) {
         JLabel title = new JLabel(text, SwingConstants.CENTER);
         title.setFont(new Font("Serif", Font.BOLD, size));
         title.setForeground(Color.white);
@@ -28,7 +35,7 @@ public class MenuPanelBuilder {
         button.setFont(new Font("Serif", Font.BOLD, 55));
         button.setForeground(Color.white);
 
-        button.addActionListener(MainFrame.getInstance());
+        button.addActionListener(context);
         return button;
     }
 

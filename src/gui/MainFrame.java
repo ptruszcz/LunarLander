@@ -11,12 +11,6 @@ import java.awt.event.ActionListener;
  */
 public class MainFrame extends JFrame implements ActionListener {
 
-    private static MainFrame instance = new MainFrame();
-    private MainFrame() {}
-    public static MainFrame getInstance() {
-        return instance;
-    }
-
     private JPanel cardsContainer = null;
     private CardLayout cardLayout = null;
     private GamePanel gamePanel = null;
@@ -34,6 +28,8 @@ public class MainFrame extends JFrame implements ActionListener {
     }
 
     private void setPanels() {
+        MenuPanelBuilder.passContext(this);
+
         cardLayout = new CardLayout();
         cardsContainer = new JPanel(cardLayout);
 
