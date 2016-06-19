@@ -114,13 +114,30 @@ public class MenuPanelBuilder {
 
     static public JPanel buildGameOverPanel() {
         JPanel panel = new JPanel(new BorderLayout());
+        panel.setBackground(Color.black);
         panel.add(createTitle("GAME OVER", 80), BorderLayout.CENTER);
+        panel.add(buildTextButton("BACK"), BorderLayout.SOUTH);
         return panel;
     }
 
     static public JPanel buildNewRecordPanel() {
-        JPanel panel = new JPanel(new BorderLayout());
-        panel.add(createTitle("NEW RECORD!", 80), BorderLayout.CENTER);
+        JPanel panel = new JPanel();
+        panel.setLayout(new GridBagLayout());
+        panel.setBackground(Color.black);
+        GridBagConstraints gBC = new GridBagConstraints();
+        gBC.fill = GridBagConstraints.VERTICAL;
+        gBC.gridwidth = 3;
+
+        TextField textField = new TextField("Your name...");
+        textField.setBackground(Color.white);
+        textField.addActionListener(context);
+
+        gBC.gridy = 0;
+        panel.add(createTitle("NEW RECORD!", 80), gBC);
+        gBC.gridy = 1;
+        panel.add(textField, gBC);
+        gBC.gridy = 2;
+        panel.add(buildTextButton("SUBMIT!"), gBC);
         return panel;
     }
 }

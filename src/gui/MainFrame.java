@@ -13,7 +13,7 @@ public class MainFrame extends JFrame implements ActionListener {
 
     private JPanel cardsContainer = null;
     private CardLayout cardLayout = new CardLayout();
-    private GamePanel gamePanel = new GamePanel();
+    private GamePanel gamePanel = null;
 
     public void initialize() {
         setTitle("Lunar Lander");
@@ -32,7 +32,7 @@ public class MainFrame extends JFrame implements ActionListener {
 
         cardsContainer = new JPanel(cardLayout);
 
-        gamePanel = new GamePanel();
+        gamePanel = new GamePanel(this);
         gamePanel.setPreferredSize(new Dimension(960,640));
         gamePanel.setBackground(Color.black);
 
@@ -46,8 +46,8 @@ public class MainFrame extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        String buttonName = e.getActionCommand();
-        switch (buttonName) {
+        String action = e.getActionCommand();
+        switch (action) {
             case "START":
                 cardLayout.show(cardsContainer, "Difficulty");
                 break;
@@ -72,6 +72,13 @@ public class MainFrame extends JFrame implements ActionListener {
                 cardLayout.show(cardsContainer, "Game");
                 gamePanel.startGame();
                 break;
+            case "GAME_OVER":
+                cardLayout.show(cardsContainer, "GameOver");
+                break;
+            case "SUBMIT!":
+
+                break;
+
         }
     }
 }

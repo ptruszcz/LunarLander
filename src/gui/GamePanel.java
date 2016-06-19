@@ -9,6 +9,7 @@ import physics.VelocityVector;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.util.*;
 import java.util.Timer;
@@ -36,6 +37,8 @@ public class GamePanel extends JPanel {
     private boolean getToNextLevel;
     private boolean isGameOver;
 
+    private ActionListener context = null;
+
     private GameMap gameMap = new GameMap();
     private Spaceship spaceship = null;
     private HUD hud = null;
@@ -45,14 +48,14 @@ public class GamePanel extends JPanel {
 
     private Image pauseIcon = null;
 
-    public GamePanel() {
+    public GamePanel(ActionListener context) {
         spaceship = new Spaceship(GameMap.X_RESOLUTION/2, GameMap.Y_RESOLUTION*0.1);
         hud = new HUD(spaceship);
         timer = new Timer();
+        this.context = context;
         bindKeys();
         actionLoop = new ActionLoop();
         pauseIcon = ImageParser.loadImage("pause20.png");
-
     }
 
     private void bindKeys() {
@@ -114,8 +117,6 @@ public class GamePanel extends JPanel {
             }
         }
     }
-
-
 
     private class ActionLoop extends TimerTask {
         @Override
@@ -180,6 +181,8 @@ public class GamePanel extends JPanel {
         if(spaceship.isCrashed()) {
             isGameOver = true;
             stopGame();
+            context.actionPerformed(new ActionEvent(this, 0, "GAME_OVER"));
+
         }
         else if(spaceship.isLanded()) {
             getToNextLevel = true;
