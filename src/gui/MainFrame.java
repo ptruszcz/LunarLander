@@ -15,7 +15,10 @@ public class MainFrame extends JFrame implements ActionListener {
     private CardLayout cardLayout = new CardLayout();
     private GamePanel gamePanel = null;
     private static String playerName = null;
-    private int difficulty;
+    private static int difficulty;
+    private static int playerScore;
+
+
 
     public void initialize() {
         setTitle("Lunar Lander");
@@ -23,6 +26,7 @@ public class MainFrame extends JFrame implements ActionListener {
         setLayout(new BorderLayout());
         setLayout(cardLayout);
         setPanels();
+        setMinimumSize(new Dimension(740, 500));
         add(cardsContainer, BorderLayout.CENTER);
 
         pack();
@@ -94,5 +98,17 @@ public class MainFrame extends JFrame implements ActionListener {
     public static void setPlayerName(String name) {
         playerName = name;
         System.out.println(playerName);
+    }
+
+    public static void setPlayerScore(int score) {
+        playerScore = score;
+    }
+
+    public static int getPlayerScore() {
+        return playerScore;
+    }
+
+    public static int getDifficulty() {
+        return difficulty;
     }
 }
