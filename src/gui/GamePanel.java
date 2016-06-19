@@ -3,7 +3,6 @@ package gui;
 import gameobjects.HUD;
 import gameobjects.Spaceship;
 import gameobjects.GameMap;
-import parsers.ImageParser;
 import physics.VelocityVector;
 
 import javax.swing.*;
@@ -21,6 +20,8 @@ import java.util.Timer;
 public class GamePanel extends JPanel {
 
     private static final int SPEED = 10;
+    private static final int LAST_LEVEL = 3;
+    private static final int STARTING_LIVES = 3;
 
     private static final KeyStroke PRESSED_UP = KeyStroke.getKeyStroke(KeyEvent.VK_UP, 0, false);
     private static final KeyStroke RELEASED_UP = KeyStroke.getKeyStroke(KeyEvent.VK_UP, 0, true);
@@ -31,16 +32,19 @@ public class GamePanel extends JPanel {
     private static final KeyStroke PRESSED_SPACE = KeyStroke.getKeyStroke(KeyEvent.VK_SPACE, 0, false);
     private static final KeyStroke PRESSED_RST = KeyStroke.getKeyStroke(KeyEvent.VK_R, 0, false);
 
+    static {
+
+    }
+
     private HashSet<String> pressedKeysList = new HashSet<>();
 
     private Timer timer = null;
-    private boolean getToNextLevel;
-    private boolean isGameOver;
+
 
     private ActionListener context = null;
 
     private int currentLevel;
-    private int lastLevel;
+    private int livesLeft;
 
     private GameMap gameMap = new GameMap();
     private Spaceship spaceship = null;
@@ -49,17 +53,19 @@ public class GamePanel extends JPanel {
     private ActionLoop actionLoop = null;
     private VelocityVector vector = new VelocityVector();
 
-    private Image pauseIcon = null;
-
     public GamePanel(ActionListener context) {
         spaceship = new Spaceship(GameMap.X_RESOLUTION/2, GameMap.Y_RESOLUTION*0.1);
         hud = new HUD(spaceship);
         timer = new Timer();
+
+        currentLevel = 1;
+        resetLives();
+
         this.context = context;
         bindKeys();
         actionLoop = new ActionLoop();
-        pauseIcon = ImageParser.loadImage("pause20.png");
     }
+
 
     private void bindKeys() {
         int whenIFW= JComponent.WHEN_IN_FOCUSED_WINDOW;
@@ -182,17 +188,42 @@ public class GamePanel extends JPanel {
 
     private void checkGameState() {
         if(spaceship.isCrashed()) {
-            isGameOver = true;
             stopGame();
-            context.actionPerformed(new ActionEvent(this, 0, "GAME_OVER"));
-
+            if (livesLeft != 0) {
+                restart();
+            }
+            else {
+                checkIfRecord(MainFrame.getPlayerScore());
+                gameOver();
+            }
         }
         else if(spaceship.isLanded()) {
-            getToNextLevel = true;
             stopGame();
-            currentLevel++;
-            context.actionPerformed(new ActionEvent(this, 0, "NEW_RECORD"));
+            if (currentLevel+1 == LAST_LEVEL)
+                checkIfRecord(20);
+            else
+                getToTheNextLevel();
         }
+    }
+
+    /** *********** */
+    private void checkIfRecord(int score) {
+        if (score > 1)
+            context.actionPerformed(new ActionEvent(this, 0, "NEW_RECORD"));
+        else
+            context.actionPerformed(new ActionEvent(this, 0, "GAME_OVER"));
+    }
+
+    private void resetLives() {
+        livesLeft = STARTING_LIVES;
+    }
+
+    private void getToTheNextLevel() {
+
+    }
+
+    private void gameOver() {
+
     }
 
     @Override
@@ -212,7 +243,5 @@ public class GamePanel extends JPanel {
         gameMap.draw(g2d);
         spaceship.draw(g2d);
         hud.draw(g2d);
-
-        g2d.drawImage(pauseIcon, GameMap.X_RESOLUTION - pauseIcon.getWidth(null) - 20, pauseIcon.getHeight(null), null);
     }
 }
