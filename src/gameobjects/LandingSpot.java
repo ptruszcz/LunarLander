@@ -1,6 +1,7 @@
 package gameobjects;
 
 import physics.Coordinates;
+import parsers.Parser;
 
 import java.awt.*;
 
@@ -11,8 +12,8 @@ import java.awt.*;
 public class LandingSpot implements Drawable {
 
     /** position of left endpoint of the landing spot */
-    Coordinates coordinate = new Coordinates(GameMap.X_RESOLUTION/2, 500);
-    Coordinates size = new Coordinates(50, 5);
+    Coordinates coordinate = new Coordinates(Parser.getSpotcoords("1", "1")[0], Parser.getSpotcoords("1", "1")[1]);
+    Coordinates size = new Coordinates(Parser.getSpotsize("1", "1"), 5);
 
     public Coordinates getCoordinate() {
         return coordinate;

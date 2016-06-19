@@ -2,15 +2,34 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0f47f383-d4b0-44e3-acf8-144179309af3" name="Default" comment="Third stage almost done. No steering yet. Physics works.">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/pause20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/play20.png" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/pauseButton.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/play.png" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/lunarlander/MainClass.class" afterPath="$PROJECT_DIR$/out/production/lunarlander/MainClass.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/lunarlander/gameobjects/LandingSpot.class" afterPath="$PROJECT_DIR$/out/production/lunarlander/gameobjects/LandingSpot.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/lunarlander/gameobjects/Surface.class" afterPath="$PROJECT_DIR$/out/production/lunarlander/gameobjects/Surface.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/lunarlander/gui/GamePanel$ActionLoop.class" afterPath="$PROJECT_DIR$/out/production/lunarlander/gui/GamePanel$ActionLoop.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/lunarlander/gui/GamePanel.class" afterPath="$PROJECT_DIR$/out/production/lunarlander/gui/GamePanel.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/lunarlander/parsers/Parser.class" afterPath="$PROJECT_DIR$/out/production/lunarlander/parsers/Parser.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.properties" afterPath="$PROJECT_DIR$/config.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lunarlander.iml" afterPath="$PROJECT_DIR$/lunarlander.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MainClass.java" afterPath="$PROJECT_DIR$/src/MainClass.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gameobjects/Drawable.java" afterPath="$PROJECT_DIR$/src/gameobjects/Drawable.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gameobjects/GameMap.java" afterPath="$PROJECT_DIR$/src/gameobjects/GameMap.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gameobjects/HUD.java" afterPath="$PROJECT_DIR$/src/gameobjects/HUD.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gameobjects/LandingSpot.java" afterPath="$PROJECT_DIR$/src/gameobjects/LandingSpot.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gameobjects/Map.java" afterPath="$PROJECT_DIR$/src/gameobjects/Map.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gameobjects/Spaceship.java" afterPath="$PROJECT_DIR$/src/gameobjects/Spaceship.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gameobjects/Surface.java" afterPath="$PROJECT_DIR$/src/gameobjects/Surface.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/GamePanel.java" afterPath="$PROJECT_DIR$/src/gui/GamePanel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/MainFrame.java" afterPath="$PROJECT_DIR$/src/gui/MainFrame.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/MenuPanelBuilder.java" afterPath="$PROJECT_DIR$/src/gui/MenuPanelBuilder.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/network/Client.java" afterPath="$PROJECT_DIR$/src/network/Client.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/network/Server.java" afterPath="$PROJECT_DIR$/src/network/Server.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/parsers/ImageParser.java" afterPath="$PROJECT_DIR$/src/parsers/ImageParser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/parsers/Parser.java" afterPath="$PROJECT_DIR$/src/parsers/Parser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/physics/Coordinates.java" afterPath="$PROJECT_DIR$/src/physics/Coordinates.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/physics/VelocityVector.java" afterPath="$PROJECT_DIR$/src/physics/VelocityVector.java" />
     </list>
     <ignored path="lunarlander.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -33,11 +52,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="GamePanel.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="GamePanel.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/gui/GamePanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="158" column="68" selection-start-line="158" selection-start-column="68" selection-end-line="158" selection-end-column="68" />
+            <state vertical-scroll-proportion="0.9763514">
+              <caret line="45" column="60" selection-start-line="45" selection-start-column="60" selection-end-line="45" selection-end-column="60" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -45,12 +64,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Parser.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/parsers/Parser.java">
+      <file leaf-file-name="VelocityVector.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/physics/VelocityVector.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="140" column="33" selection-start-line="140" selection-start-column="33" selection-end-line="140" selection-end-column="33" />
-              <folding />
+              <caret line="70" column="5" selection-start-line="70" selection-start-column="5" selection-end-line="70" selection-end-column="5" />
+              <folding>
+                <element signature="method#VelocityVector#0;class#VelocityVector#0" expanded="false" />
+                <element signature="method#VelocityVector#1;class#VelocityVector#0" expanded="false" />
+                <element signature="method#add#0;class#VelocityVector#0" expanded="false" />
+                <element signature="method#add#1;class#VelocityVector#0" expanded="false" />
+                <element signature="e#1442#1443#0" expanded="true" />
+                <element signature="method#reset#0;class#VelocityVector#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -66,16 +92,6 @@
                 <element signature="method#setPanels#0;class#MainFrame#0" expanded="false" />
                 <element signature="method#actionPerformed#0;class#MainFrame#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ImageParser.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/parsers/ImageParser.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -99,18 +115,16 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Spaceship.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Spaceship.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gameobjects/Spaceship.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.68358713">
-              <caret line="139" column="0" selection-start-line="139" selection-start-column="0" selection-end-line="139" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#Spaceship#0;class#Spaceship#0" expanded="false" />
                 <element signature="method#Spaceship#1;class#Spaceship#0" expanded="false" />
-                <element signature="method#updateFuel#0;class#Spaceship#0" expanded="false" />
                 <element signature="method#update#0;class#Spaceship#0" expanded="false" />
-                <element signature="method#checkForCollisions#0;class#Spaceship#0" expanded="false" />
                 <element signature="method#draw#0;class#Spaceship#0" expanded="false" />
               </folding>
             </state>
@@ -133,11 +147,9 @@
         <entry file="file://$PROJECT_DIR$/src/gameobjects/LandingSpot.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="18" column="5" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
+              <caret line="18" column="26" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#384#385#0" expanded="true" />
-                <element signature="e#417#418#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -157,10 +169,20 @@
         <entry file="file://$PROJECT_DIR$/src/gameobjects/Surface.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="22" column="46" selection-start-line="22" selection-start-column="46" selection-end-line="22" selection-end-column="46" />
+              <caret line="41" column="5" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Map.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gameobjects/Map.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="14" column="49" selection-start-line="14" selection-start-column="49" selection-end-line="14" selection-end-column="49" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -178,6 +200,7 @@
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
+        <option value="ptruszcz &lt;piotr.truszczynski95@gmail.com&gt;" />
         <option value="ptruszcz" />
       </list>
     </option>
@@ -208,10 +231,10 @@
         <option value="$PROJECT_DIR$/src/gui/MenuPanelBuilder.java" />
         <option value="$PROJECT_DIR$/src/gameobjects/LandingSpot.java" />
         <option value="$PROJECT_DIR$/src/physics/VelocityVector.java" />
-        <option value="$PROJECT_DIR$/src/gameobjects/HUD.java" />
-        <option value="$PROJECT_DIR$/src/physics/Coordinates.java" />
-        <option value="$PROJECT_DIR$/src/gui/GamePanel.java" />
         <option value="$PROJECT_DIR$/src/gameobjects/Spaceship.java" />
+        <option value="$PROJECT_DIR$/src/gameobjects/HUD.java" />
+        <option value="$PROJECT_DIR$/src/gui/GamePanel.java" />
+        <option value="$PROJECT_DIR$/src/physics/Coordinates.java" />
       </list>
     </option>
   </component>
@@ -251,8 +274,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -317,24 +340,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="parsers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lunarlander" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lunarlander" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="network" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -375,23 +380,9 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lunarlander" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lunarlander" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -814,7 +805,7 @@
       <workItem from="1463781784799" duration="4558000" />
       <workItem from="1463786420230" duration="147000" />
       <workItem from="1463862254741" duration="18039000" />
-      <workItem from="1466350891339" duration="4482000" />
+      <workItem from="1466359667177" duration="98000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1463782275379</created>
@@ -832,20 +823,20 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36575000" />
+    <option name="totallyTimeSpent" value="32191000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25266525" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -882,7 +873,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="16" />
+      <option name="time" value="15" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
@@ -895,6 +886,26 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/physics/Coordinates.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="2" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gameobjects/LandingSpot.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="26" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/gameobjects/HUD.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -906,7 +917,7 @@
     <entry file="file://$PROJECT_DIR$/src/gameobjects/Surface.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+          <caret line="41" column="5" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -979,9 +990,7 @@
             <element signature="imports" expanded="true" />
             <element signature="method#Spaceship#0;class#Spaceship#0" expanded="false" />
             <element signature="method#Spaceship#1;class#Spaceship#0" expanded="false" />
-            <element signature="method#updateFuel#0;class#Spaceship#0" expanded="false" />
             <element signature="method#update#0;class#Spaceship#0" expanded="false" />
-            <element signature="method#checkForCollisions#0;class#Spaceship#0" expanded="false" />
             <element signature="method#draw#0;class#Spaceship#0" expanded="false" />
           </folding>
         </state>
@@ -1003,8 +1012,6 @@
           <caret line="4" column="2" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#384#385#0" expanded="true" />
-            <element signature="e#417#418#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1021,6 +1028,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="4" column="2" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1028,6 +1036,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="4" column="2" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1089,9 +1098,7 @@
             <element signature="imports" expanded="true" />
             <element signature="method#Spaceship#0;class#Spaceship#0" expanded="false" />
             <element signature="method#Spaceship#1;class#Spaceship#0" expanded="false" />
-            <element signature="method#updateFuel#0;class#Spaceship#0" expanded="false" />
             <element signature="method#update#0;class#Spaceship#0" expanded="false" />
-            <element signature="method#checkForCollisions#0;class#Spaceship#0" expanded="false" />
             <element signature="method#draw#0;class#Spaceship#0" expanded="false" />
           </folding>
         </state>
@@ -1113,8 +1120,6 @@
           <caret line="4" column="2" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#384#385#0" expanded="true" />
-            <element signature="e#417#418#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1131,6 +1136,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="4" column="2" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1138,6 +1144,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="4" column="2" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1206,9 +1213,7 @@
             <element signature="imports" expanded="true" />
             <element signature="method#Spaceship#0;class#Spaceship#0" expanded="false" />
             <element signature="method#Spaceship#1;class#Spaceship#0" expanded="false" />
-            <element signature="method#updateFuel#0;class#Spaceship#0" expanded="false" />
             <element signature="method#update#0;class#Spaceship#0" expanded="false" />
-            <element signature="method#checkForCollisions#0;class#Spaceship#0" expanded="false" />
             <element signature="method#draw#0;class#Spaceship#0" expanded="false" />
           </folding>
         </state>
@@ -1230,8 +1235,6 @@
           <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#384#385#0" expanded="true" />
-            <element signature="e#417#418#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1275,6 +1278,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="4" column="2" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1282,6 +1286,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="4" column="2" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1296,6 +1301,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.2908745">
           <caret line="9" column="26" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1317,6 +1323,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/gameobjects/Surface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="41" column="5" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gameobjects/LandingSpot.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="26" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/physics/VelocityVector.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1332,32 +1358,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gameobjects/HUD.java">
+    <entry file="file://$PROJECT_DIR$/src/gui/MainFrame.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="25" column="56" selection-start-line="25" selection-start-column="56" selection-end-line="25" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gameobjects/LandingSpot.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="5" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
+          <caret line="29" column="29" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#384#385#0" expanded="true" />
-            <element signature="e#417#418#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/physics/Coordinates.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="2" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="method#initialize#0;class#MainFrame#0" expanded="false" />
+            <element signature="method#setPanels#0;class#MainFrame#0" expanded="false" />
+            <element signature="method#actionPerformed#0;class#MainFrame#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1379,67 +1388,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/MainFrame.java">
+    <entry file="file://$PROJECT_DIR$/src/gameobjects/Spaceship.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="29" column="29" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="29" />
+          <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#initialize#0;class#MainFrame#0" expanded="false" />
-            <element signature="method#setPanels#0;class#MainFrame#0" expanded="false" />
-            <element signature="method#actionPerformed#0;class#MainFrame#0" expanded="false" />
+            <element signature="method#Spaceship#0;class#Spaceship#0" expanded="false" />
+            <element signature="method#Spaceship#1;class#Spaceship#0" expanded="false" />
+            <element signature="method#update#0;class#Spaceship#0" expanded="false" />
+            <element signature="method#draw#0;class#Spaceship#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/parsers/ImageParser.java">
+    <entry file="file://$PROJECT_DIR$/src/gameobjects/HUD.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <caret line="25" column="56" selection-start-line="25" selection-start-column="56" selection-end-line="25" selection-end-column="56" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/physics/Coordinates.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="2" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/GamePanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="158" column="68" selection-start-line="158" selection-start-column="68" selection-end-line="158" selection-end-column="68" />
+        <state vertical-scroll-proportion="0.9763514">
+          <caret line="45" column="60" selection-start-line="45" selection-start-column="60" selection-end-line="45" selection-end-column="60" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/parsers/Parser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="140" column="33" selection-start-line="140" selection-start-column="33" selection-end-line="140" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gameobjects/Surface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="22" column="46" selection-start-line="22" selection-start-column="46" selection-end-line="22" selection-end-column="46" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gameobjects/Spaceship.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.68358713">
-          <caret line="139" column="0" selection-start-line="139" selection-start-column="0" selection-end-line="139" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#Spaceship#0;class#Spaceship#0" expanded="false" />
-            <element signature="method#Spaceship#1;class#Spaceship#0" expanded="false" />
-            <element signature="method#updateFuel#0;class#Spaceship#0" expanded="false" />
-            <element signature="method#update#0;class#Spaceship#0" expanded="false" />
-            <element signature="method#checkForCollisions#0;class#Spaceship#0" expanded="false" />
-            <element signature="method#draw#0;class#Spaceship#0" expanded="false" />
           </folding>
         </state>
       </provider>

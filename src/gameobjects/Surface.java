@@ -2,6 +2,7 @@ package gameobjects;
 
 import parsers.Parser;
 import physics.Coordinates;
+import gameobjects.GameMap;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -18,21 +19,21 @@ public class Surface implements Drawable {
 
     public Surface() {
         points = new ArrayList<>(numberOfPoints+2); //żeby wielokąt nie połączył skrajnych punktów, tylko była ładna ziemia
-        points.add(0,new Coordinates(0, 640));
+        points.add(0,new Coordinates(0, GameMap.Y_RESOLUTION));
         this.fillArrayList();
-        points.add(new Coordinates(960, 640));
-
+        points.add(new Coordinates(GameMap.X_RESOLUTION, GameMap.Y_RESOLUTION));
         for(Coordinates c : points)
             polygon.addPoint((int)c.getX(), (int)c.getY());
     }
 
-    //tymczasowa funkcja!
     private void fillArrayList() {
-        int xcoord = 0;
-        int ycoord = 500;
+        int xcoord=0;
+        double ycoord;
+        double[] ycoords = Parser.getYval("1");
         for(int i = 0; i<numberOfPoints; i++) {
+            ycoord = ycoords[i];
             this.points.add(new Coordinates(xcoord, ycoord));
-            xcoord += 12;
+            xcoord += GameMap.X_RESOLUTION/numberOfPoints;
         }
     }
 

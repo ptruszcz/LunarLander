@@ -119,11 +119,11 @@ public final class Parser
         return fuelconsx;
     }
 
-    public static int[] getYval(String level) {
+    public static double[] getYval(String level) {
         Properties properties = loadProperties();
         System.setProperty("file.encoding", "UTF-8");
         String[] ys = properties.getProperty("YVAL"+level).split(" ");
-        int[] yval = Arrays.stream(ys).mapToInt(Integer::parseInt).toArray();
+        double[] yval = Arrays.stream(ys).mapToDouble(Double::parseDouble).toArray();
         return yval;
     }
 
@@ -148,4 +148,19 @@ public final class Parser
         return bonuscoords;
     }
 
+    public static int[] getSpotcoords(String level, String diff){
+        Properties properties = loadProperties();
+        System.setProperty("file.encoding", "UTF-8");
+        String[] sc = properties.getProperty("LANDING_SPOT"+level+diff).split(" ");
+        int[] spotcoords = Arrays.stream(sc).mapToInt(Integer::parseInt).toArray();
+        return spotcoords;
+    }
+
+    public static int getSpotsize(String level, String diff){
+        Properties properties = loadProperties();
+        System.setProperty("file.encoding", "UTF-8");
+        String ssize = properties.getProperty("LANDING_SPOT_SIZE"+level+diff);
+        int spotsize = Integer.parseInt(ssize);
+        return spotsize;
+    }
 }
