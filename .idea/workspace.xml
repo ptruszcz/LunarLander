@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0f47f383-d4b0-44e3-acf8-144179309af3" name="Default" comment="GameOver menu works">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/lunarlander/gui/GamePanel$ActionLoop.class" afterPath="$PROJECT_DIR$/out/production/lunarlander/gui/GamePanel$ActionLoop.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/lunarlander/gui/GamePanel.class" afterPath="$PROJECT_DIR$/out/production/lunarlander/gui/GamePanel.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/lunarlander/gui/MainFrame.class" afterPath="$PROJECT_DIR$/out/production/lunarlander/gui/MainFrame.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/lunarlander/gui/MenuPanelBuilder.class" afterPath="$PROJECT_DIR$/out/production/lunarlander/gui/MenuPanelBuilder.class" />
+    <list default="true" id="0f47f383-d4b0-44e3-acf8-144179309af3" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/lunarlander/gameobjects/HUD$1.class" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/lunarlander/gameobjects/HUD.class" afterPath="$PROJECT_DIR$/out/production/lunarlander/gameobjects/HUD.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/lunarlander/gameobjects/Spaceship$State.class" afterPath="$PROJECT_DIR$/out/production/lunarlander/gameobjects/Spaceship$State.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/lunarlander/gameobjects/Spaceship.class" afterPath="$PROJECT_DIR$/out/production/lunarlander/gameobjects/Spaceship.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gameobjects/HUD.java" afterPath="$PROJECT_DIR$/src/gameobjects/HUD.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gameobjects/Spaceship.java" afterPath="$PROJECT_DIR$/src/gameobjects/Spaceship.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/GamePanel.java" afterPath="$PROJECT_DIR$/src/gui/GamePanel.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/MainFrame.java" afterPath="$PROJECT_DIR$/src/gui/MainFrame.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/MenuPanelBuilder.java" afterPath="$PROJECT_DIR$/src/gui/MenuPanelBuilder.java" />
     </list>
     <ignored path="lunarlander.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,17 +35,17 @@
         <entry file="file://$PROJECT_DIR$/src/gui/GamePanel.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="190" column="9" selection-start-line="190" selection-start-column="9" selection-end-line="190" selection-end-column="9" />
+              <caret line="41" column="29" selection-start-line="41" selection-start-column="29" selection-end-line="41" selection-end-column="29" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainFrame.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MainFrame.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/gui/MainFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="83" column="39" selection-start-line="83" selection-start-column="39" selection-end-line="83" selection-end-column="39" />
+            <state vertical-scroll-proportion="0.7123519">
+              <caret line="74" column="24" selection-start-line="74" selection-start-column="24" selection-end-line="74" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -107,11 +104,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Spaceship.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Spaceship.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gameobjects/Spaceship.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.20812182">
-              <caret line="91" column="5" selection-start-line="91" selection-start-column="5" selection-end-line="91" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="145" column="0" selection-start-line="145" selection-start-column="0" selection-end-line="145" selection-end-column="0" />
               <folding>
                 <element signature="method#Spaceship#1;class#Spaceship#0" expanded="false" />
                 <element signature="method#update#0;class#Spaceship#0" expanded="false" />
@@ -188,10 +185,10 @@
         <option value="$PROJECT_DIR$/src/physics/VelocityVector.java" />
         <option value="$PROJECT_DIR$/src/physics/Coordinates.java" />
         <option value="$PROJECT_DIR$/src/gui/MenuPanelBuilder.java" />
-        <option value="$PROJECT_DIR$/src/gui/GamePanel.java" />
-        <option value="$PROJECT_DIR$/src/gui/MainFrame.java" />
         <option value="$PROJECT_DIR$/src/gameobjects/HUD.java" />
         <option value="$PROJECT_DIR$/src/gameobjects/Spaceship.java" />
+        <option value="$PROJECT_DIR$/src/gui/GamePanel.java" />
+        <option value="$PROJECT_DIR$/src/gui/MainFrame.java" />
       </list>
     </option>
   </component>
@@ -918,7 +915,7 @@
       <workItem from="1463862254741" duration="18039000" />
       <workItem from="1466359667177" duration="98000" />
       <workItem from="1466361647994" duration="7163000" />
-      <workItem from="1466369195961" duration="3939000" />
+      <workItem from="1466369195961" duration="4676000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1463782275379</created>
@@ -950,11 +947,17 @@
       <option name="project" value="LOCAL" />
       <updated>1466368773643</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Corrected collision detection&#10;new record and game over menus">
+      <created>1466373177623</created>
+      <option name="number" value="00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1466373177623</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43293000" />
+    <option name="totallyTimeSpent" value="44030000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1003,7 +1006,8 @@
     <MESSAGE value="Engines stop when tank is empty" />
     <MESSAGE value="Restart is now possible" />
     <MESSAGE value="GameOver menu works" />
-    <option name="LAST_COMMIT_MESSAGE" value="GameOver menu works" />
+    <MESSAGE value="Corrected collision detection&#10;new record and game over menus" />
+    <option name="LAST_COMMIT_MESSAGE" value="Corrected collision detection&#10;new record and game over menus" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1472,24 +1476,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/MainFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="83" column="39" selection-start-line="83" selection-start-column="39" selection-end-line="83" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/GamePanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="190" column="9" selection-start-line="190" selection-start-column="9" selection-end-line="190" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/gameobjects/HUD.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1515,13 +1501,31 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gameobjects/Spaceship.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.20812182">
-          <caret line="91" column="5" selection-start-line="91" selection-start-column="5" selection-end-line="91" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="145" column="0" selection-start-line="145" selection-start-column="0" selection-end-line="145" selection-end-column="0" />
           <folding>
             <element signature="method#Spaceship#1;class#Spaceship#0" expanded="false" />
             <element signature="method#update#0;class#Spaceship#0" expanded="false" />
             <element signature="method#togglePaused#0;class#Spaceship#0" expanded="false" />
             <element signature="method#draw#0;class#Spaceship#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/GamePanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="41" column="29" selection-start-line="41" selection-start-column="29" selection-end-line="41" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/MainFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7123519">
+          <caret line="74" column="24" selection-start-line="74" selection-start-column="24" selection-end-line="74" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

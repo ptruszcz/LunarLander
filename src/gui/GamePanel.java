@@ -39,6 +39,9 @@ public class GamePanel extends JPanel {
 
     private ActionListener context = null;
 
+    private int currentLevel;
+    private int lastLevel;
+
     private GameMap gameMap = new GameMap();
     private Spaceship spaceship = null;
     private HUD hud = null;
@@ -187,6 +190,7 @@ public class GamePanel extends JPanel {
         else if(spaceship.isLanded()) {
             getToNextLevel = true;
             stopGame();
+            currentLevel++;
             context.actionPerformed(new ActionEvent(this, 0, "NEW_RECORD"));
         }
     }

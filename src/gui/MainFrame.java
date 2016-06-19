@@ -15,6 +15,7 @@ public class MainFrame extends JFrame implements ActionListener {
     private CardLayout cardLayout = new CardLayout();
     private GamePanel gamePanel = null;
     private static String playerName = null;
+    private int difficulty;
 
     public void initialize() {
         setTitle("Lunar Lander");
@@ -63,14 +64,17 @@ public class MainFrame extends JFrame implements ActionListener {
                 break;
             case "EASY":
                 cardLayout.show(cardsContainer, "Game");
+                difficulty = 1;
                 gamePanel.startGame();
                 break;
             case "MEDIUM":
                 cardLayout.show(cardsContainer, "Game");
+                difficulty = 2;
                 gamePanel.startGame();
                 break;
             case "HARD":
                 cardLayout.show(cardsContainer, "Game");
+                difficulty = 3;
                 gamePanel.startGame();
                 break;
             case "GAME_OVER":
