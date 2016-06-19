@@ -31,12 +31,10 @@ public class HUD implements Drawable {
         g.drawString("Position: " + String.format("%.2f %.2f", spaceship.getCoordinates().getX(), spaceship.getCoordinates().getY()), 1, 50);
         g.drawString("Fuel left: " + spaceship.getFuelLeft(), 1, 65);
 
-        switch (spaceship.getState()) {
-            case IN_AIR:
-                break;
 
+        switch (spaceship.getState()) {
             case PAUSED:
-                g.drawString("Press SPACE to unpause game", GameMap.X_RESOLUTION / 2, GameMap.Y_RESOLUTION / 2);
+                g.drawString("Press SPACE to unpause game", GameMap.X_RESOLUTION - 200, 20);
                 break;
 
             case CRASHED:
@@ -45,6 +43,8 @@ public class HUD implements Drawable {
 
             case LANDED:
                 g.drawString("LANDED!", 200, 200);
+                break;
+            default:
                 break;
         }
 
