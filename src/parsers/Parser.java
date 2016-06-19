@@ -23,6 +23,14 @@ public final class Parser
         return properties;
     }
 
+    public static int getSpeed(){
+        Properties properties = loadProperties();
+        System.setProperty("file.encoding", "UTF-8");
+        String speeds = properties.getProperty("SPEED");
+        int speed = Integer.parseInt(speeds);
+        return speed;
+    }
+
     public static int getXres(){
         Properties properties = loadProperties();
         System.setProperty("file.encoding", "UTF-8");
@@ -117,6 +125,14 @@ public final class Parser
         String fuelconsxs = properties.getProperty("FUEL_CONS_X");
         int fuelconsx = Integer.parseInt(fuelconsxs);
         return fuelconsx;
+    }
+
+    public static int getLives(){
+        Properties properties = loadProperties();
+        System.setProperty("file.encoding", "UTF-8");
+        String livess = properties.getProperty("LIVES");
+        int lives = Integer.parseInt(livess);
+        return lives;
     }
 
     public static double[] getYval(String level) {

@@ -5,7 +5,6 @@ import parsers.*;
 import javax.swing.*;
 import javax.swing.plaf.basic.BasicArrowButton;
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
@@ -117,41 +116,13 @@ public class MenuPanelBuilder {
 
     static public JPanel buildGameOverPanel() {
         JPanel panel = new JPanel(new BorderLayout());
-        panel.setBackground(Color.black);
         panel.add(createTitle("GAME OVER", 80), BorderLayout.CENTER);
-        panel.add(buildTextButton("BACK"), BorderLayout.SOUTH);
         return panel;
     }
 
     static public JPanel buildNewRecordPanel() {
-        JPanel panel = new JPanel();
-        panel.setLayout(new GridBagLayout());
-        panel.setBackground(Color.black);
-        GridBagConstraints gBC = new GridBagConstraints();
-        gBC.fill = GridBagConstraints.VERTICAL;
-        gBC.gridwidth = 3;
-
-        JTextField textField = new JTextField("Your name...");
-        textField.setBackground(Color.white);
-        textField.addActionListener(context);
-
-        JButton button = buildTextButton("SUBMIT!");
-        button.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.out.println("You clicked the button");
-                String name = textField.getText();
-                MainFrame.setPlayerName(name);
-            }
-        });
-
-        gBC.gridy = 0;
-        panel.add(createTitle("NEW RECORD!", 80), gBC, 0);
-        gBC.gridy = 1;
-        panel.add(textField, gBC, 1);
-        gBC.gridy = 2;
-        panel.add(button, gBC, 2);
-
+        JPanel panel = new JPanel(new BorderLayout());
+        panel.add(createTitle("NEW RECORD!", 80), BorderLayout.CENTER);
         return panel;
     }
 }

@@ -31,7 +31,6 @@ public class HUD implements Drawable {
         g.drawString("Position: " + String.format("%.2f %.2f", spaceship.getCoordinates().getX(), spaceship.getCoordinates().getY()), 1, 50);
         g.drawString("Fuel left: " + spaceship.getFuelLeft(), 1, 65);
 
-        /*
         switch (spaceship.getState()) {
             case IN_AIR:
                 break;
@@ -48,6 +47,5 @@ public class HUD implements Drawable {
                 g.drawString("LANDED!", 200, 200);
                 break;
         }
-        */
     }
 }

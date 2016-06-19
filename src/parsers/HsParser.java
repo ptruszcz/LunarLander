@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Arrays;
 import java.util.Properties;
 
 public final class HsParser {
@@ -24,10 +25,12 @@ public final class HsParser {
         return properties;
     }
 
-    public static String getRecord(String diff, String n){
+    public static String[] getRecord(String diff, String n){
         Properties properties = loadProperties();
         System.setProperty("file.encoding", "UTF-8");
-        String record = properties.getProperty(diff+n);
+        String[] record = new String[2];
+        record[0] = properties.getProperty(diff+"_NAME"+n);
+        record[1] = properties.getProperty(diff+"_POINTS"+n);
         return record;
     }
 
@@ -35,11 +38,12 @@ public final class HsParser {
         String[] easy = new String [NUMBER_OF_RECORDS];
         for(int i=0; i<NUMBER_OF_RECORDS; i++){
             String num = Integer.toString(i);
-            easy[i] = String.valueOf(getRecord("EASY",num));
+            easy[i] = Arrays.toString(getRecord("EASY",num));
         }
         return easy;
     }
 
+    /*
     public static String[] getMedium(){
         String[] medium = new String [NUMBER_OF_RECORDS];
         for(int i=0; i<NUMBER_OF_RECORDS; i++){
@@ -57,5 +61,5 @@ public final class HsParser {
         }
         return hard;
     }
-
+*/
 }

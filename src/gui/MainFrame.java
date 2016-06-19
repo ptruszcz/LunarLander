@@ -13,9 +13,7 @@ public class MainFrame extends JFrame implements ActionListener {
 
     private JPanel cardsContainer = null;
     private CardLayout cardLayout = new CardLayout();
-    private GamePanel gamePanel = null;
-    private static String playerName = null;
-    private int difficulty;
+    private GamePanel gamePanel = new GamePanel();
 
     public void initialize() {
         setTitle("Lunar Lander");
@@ -34,7 +32,7 @@ public class MainFrame extends JFrame implements ActionListener {
 
         cardsContainer = new JPanel(cardLayout);
 
-        gamePanel = new GamePanel(this);
+        gamePanel = new GamePanel();
         gamePanel.setPreferredSize(new Dimension(960,640));
         gamePanel.setBackground(Color.black);
 
@@ -48,8 +46,8 @@ public class MainFrame extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        String action = e.getActionCommand();
-        switch (action) {
+        String buttonName = e.getActionCommand();
+        switch (buttonName) {
             case "START":
                 cardLayout.show(cardsContainer, "Difficulty");
                 break;
@@ -64,35 +62,16 @@ public class MainFrame extends JFrame implements ActionListener {
                 break;
             case "EASY":
                 cardLayout.show(cardsContainer, "Game");
-                difficulty = 1;
                 gamePanel.startGame();
                 break;
             case "MEDIUM":
                 cardLayout.show(cardsContainer, "Game");
-                difficulty = 2;
                 gamePanel.startGame();
                 break;
             case "HARD":
                 cardLayout.show(cardsContainer, "Game");
-                difficulty = 3;
                 gamePanel.startGame();
                 break;
-            case "GAME_OVER":
-                cardLayout.show(cardsContainer, "GameOver");
-                break;
-            case "NEW_RECORD":
-                cardLayout.show(cardsContainer, "NewRecord");
-                break;
-            case "SUBMIT!":
-                cardLayout.show(cardsContainer, "Records");
-                //write name to records
-                break;
-
         }
-    }
-
-    public static void setPlayerName(String name) {
-        playerName = name;
-        System.out.println(playerName);
     }
 }
