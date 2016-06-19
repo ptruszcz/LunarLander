@@ -83,6 +83,7 @@ public class Spaceship implements Drawable {
 
     private void updatePosition(VelocityVector velocity) {
         this.coordinates.update(velocity);
+        rectangle.setFrame(new Rectangle((int)coordinates.getX(), (int)coordinates.getY(), SHIP_SIZE, SHIP_SIZE));
     }
 
     private void updateFuel(VelocityVector vector) {
