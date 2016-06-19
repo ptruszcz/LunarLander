@@ -28,8 +28,13 @@ public class GamePanel extends JPanel {
     private static final KeyStroke PRESSED_RIGHT = KeyStroke.getKeyStroke(KeyEvent.VK_RIGHT, 0, false);
     private static final KeyStroke RELEASED_RIGHT = KeyStroke.getKeyStroke(KeyEvent.VK_RIGHT, 0, true);
     private static final KeyStroke PRESSED_SPACE = KeyStroke.getKeyStroke(KeyEvent.VK_SPACE, 0, false);
+    private static final KeyStroke PRESSED_RST = KeyStroke.getKeyStroke(KeyEvent.VK_R, 0, false);
 
     private HashSet<String> pressedKeysList = new HashSet<>();
+
+    private Timer timer = null;
+    private boolean getToNextLevel;
+    private boolean isGameOver;
 
     private GameMap gameMap = new GameMap();
     private Spaceship spaceship = null;
@@ -40,15 +45,13 @@ public class GamePanel extends JPanel {
 
     private Image pauseIcon = null;
 
-    //private JButton pauseButton = new JButton((Icon)pauseIcon);
-
     public GamePanel() {
         spaceship = new Spaceship(GameMap.X_RESOLUTION/2, GameMap.Y_RESOLUTION*0.1);
         hud = new HUD(spaceship);
+        timer = new Timer();
         bindKeys();
         actionLoop = new ActionLoop();
         pauseIcon = ImageParser.loadImage("pause20.png");
-        //add(pauseButton, RIGHT_ALIGNMENT);
 
     }
 
@@ -68,6 +71,7 @@ public class GamePanel extends JPanel {
         inputMap.put(RELEASED_RIGHT, "R_RIGHT");
 
         inputMap.put(PRESSED_SPACE, "P_SPACE");
+        inputMap.put(PRESSED_RST, "P_RST");
 
         actionMap.put("P_UP", new Movement("UP", "P"));
         actionMap.put("R_UP", new Movement("UP", "R"));
@@ -79,6 +83,7 @@ public class GamePanel extends JPanel {
         actionMap.put("R_RIGHT", new Movement("RIGHT", "R"));
 
         actionMap.put("P_SPACE", new Movement("SPACE", "SPACE"));
+        actionMap.put("P_RST", new Movement("RST", "RST"));
     }
 
     private class Movement extends AbstractAction {
@@ -103,13 +108,20 @@ public class GamePanel extends JPanel {
                 case "SPACE":
                     spaceship.togglePaused();
                     break;
+                case "RST":
+                    restart();
+                    break;
             }
         }
     }
 
+
+
     private class ActionLoop extends TimerTask {
         @Override
         public void run() {
+            checkGameState();
+
             vector.descend();
             pressedKeysList.forEach(this::selectAction);
             spaceship.checkForCollisions(gameMap);
@@ -118,6 +130,7 @@ public class GamePanel extends JPanel {
                 spaceship.update(vector);
                 toggleAreEnginesActive();
             }
+
             vector.reset();
             repaint();
         }
@@ -147,7 +160,31 @@ public class GamePanel extends JPanel {
     }
 
     public void startGame() {
-        new Timer().scheduleAtFixedRate(actionLoop, 0, SPEED);
+        spaceship = new Spaceship(GameMap.X_RESOLUTION/2, GameMap.Y_RESOLUTION*0.1);
+        timer = new Timer();
+        actionLoop = new ActionLoop();
+        hud = new HUD(spaceship);
+        timer.scheduleAtFixedRate(actionLoop, 0, SPEED);
+    }
+
+    public void stopGame() {
+        timer.cancel();
+    }
+
+    private void restart() {
+        stopGame();
+        startGame();
+    }
+
+    private void checkGameState() {
+        if(spaceship.isCrashed()) {
+            isGameOver = true;
+            stopGame();
+        }
+        else if(spaceship.isLanded()) {
+            getToNextLevel = true;
+            stopGame();
+        }
     }
 
     @Override
