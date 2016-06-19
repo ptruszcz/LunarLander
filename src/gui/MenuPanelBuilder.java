@@ -5,6 +5,7 @@ import parsers.*;
 import javax.swing.*;
 import javax.swing.plaf.basic.BasicArrowButton;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
@@ -130,16 +131,27 @@ public class MenuPanelBuilder {
         gBC.fill = GridBagConstraints.VERTICAL;
         gBC.gridwidth = 3;
 
-        TextField textField = new TextField("Your name...");
+        JTextField textField = new JTextField("Your name...");
         textField.setBackground(Color.white);
         textField.addActionListener(context);
 
+        JButton button = buildTextButton("SUBMIT!");
+        button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("You clicked the button");
+                String name = textField.getText();
+                MainFrame.setPlayerName(name);
+            }
+        });
+
         gBC.gridy = 0;
-        panel.add(createTitle("NEW RECORD!", 80), gBC);
+        panel.add(createTitle("NEW RECORD!", 80), gBC, 0);
         gBC.gridy = 1;
-        panel.add(textField, gBC);
+        panel.add(textField, gBC, 1);
         gBC.gridy = 2;
-        panel.add(buildTextButton("SUBMIT!"), gBC);
+        panel.add(button, gBC, 2);
+
         return panel;
     }
 }

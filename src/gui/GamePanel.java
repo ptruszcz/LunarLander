@@ -187,6 +187,7 @@ public class GamePanel extends JPanel {
         else if(spaceship.isLanded()) {
             getToNextLevel = true;
             stopGame();
+            context.actionPerformed(new ActionEvent(this, 0, "NEW_RECORD"));
         }
     }
 

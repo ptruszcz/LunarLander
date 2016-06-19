@@ -14,6 +14,7 @@ public class MainFrame extends JFrame implements ActionListener {
     private JPanel cardsContainer = null;
     private CardLayout cardLayout = new CardLayout();
     private GamePanel gamePanel = null;
+    private static String playerName = null;
 
     public void initialize() {
         setTitle("Lunar Lander");
@@ -75,10 +76,19 @@ public class MainFrame extends JFrame implements ActionListener {
             case "GAME_OVER":
                 cardLayout.show(cardsContainer, "GameOver");
                 break;
+            case "NEW_RECORD":
+                cardLayout.show(cardsContainer, "NewRecord");
+                break;
             case "SUBMIT!":
-
+                cardLayout.show(cardsContainer, "Records");
+                //write name to records
                 break;
 
         }
+    }
+
+    public static void setPlayerName(String name) {
+        playerName = name;
+        System.out.println(playerName);
     }
 }
