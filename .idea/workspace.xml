@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0f47f383-d4b0-44e3-acf8-144179309af3" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/lunarlander/gui/GamePanel$Movement.class" afterPath="$PROJECT_DIR$/out/production/lunarlander/gui/GamePanel$Movement.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/GamePanel.java" afterPath="$PROJECT_DIR$/src/gui/GamePanel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/MainFrame.java" afterPath="$PROJECT_DIR$/src/gui/MainFrame.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/MenuPanelBuilder.java" afterPath="$PROJECT_DIR$/src/gui/MenuPanelBuilder.java" />
     </list>
     <ignored path="lunarlander.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -839,7 +835,7 @@
       <workItem from="1463786420230" duration="147000" />
       <workItem from="1463862254741" duration="18039000" />
       <workItem from="1466359667177" duration="98000" />
-      <workItem from="1466361647994" duration="7100000" />
+      <workItem from="1466361647994" duration="7163000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1463782275379</created>
@@ -865,15 +861,21 @@
       <option name="project" value="LOCAL" />
       <updated>1466365095626</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="GameOver menu works">
+      <created>1466368773643</created>
+      <option name="number" value="00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1466368773643</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39291000" />
+    <option name="totallyTimeSpent" value="39354000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -917,7 +919,8 @@
     <MESSAGE value="Third stage almost done. No steering yet. Physics works." />
     <MESSAGE value="Engines stop when tank is empty" />
     <MESSAGE value="Restart is now possible" />
-    <option name="LAST_COMMIT_MESSAGE" value="Restart is now possible" />
+    <MESSAGE value="GameOver menu works" />
+    <option name="LAST_COMMIT_MESSAGE" value="GameOver menu works" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
