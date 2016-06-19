@@ -123,5 +123,4 @@ public class MenuPanelBuilder {
         panel.add(createTitle("NEW RECORD!", 80), BorderLayout.CENTER);
         return panel;
     }
-
 }

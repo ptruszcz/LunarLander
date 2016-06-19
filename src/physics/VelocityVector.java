@@ -1,17 +1,27 @@
 package physics;
 
+import gameobjects.Spaceship;
+import parsers.Parser;
+
 /**
  * Created by piotr on 21.05.2016.
  *
  */
 public class VelocityVector {
 
-    public static final double GRAVITIONAL_ACCELERATION = 0.01;
-    public static final double MAIN_ENGINE_POWER = 0.05;
-    public static final double SIDE_ENGINE_POWER = 0.03;
+    public static final double GRAVITIONAL_ACCELERATION;
+    public static final double MAX_Y_VELOCITY;
+    public static final double MAX_X_VELOCITY;
+
 
     private double x;
     private double y;
+
+    static {
+        GRAVITIONAL_ACCELERATION = Parser.getGravity();
+        MAX_Y_VELOCITY = Parser.getMaxyvel();
+        MAX_X_VELOCITY = Parser.getMaxxvel();
+    }
 
     public VelocityVector() {
         this.setX(0);
@@ -39,34 +49,46 @@ public class VelocityVector {
         return y;
     }
 
-    public void add(double x, double y) {
+    public synchronized void add(double x, double y) {
         this.x += x;
         this.y += y;
     }
 
-    public void add(VelocityVector vector) {
+    public synchronized void add(VelocityVector vector) {
         this.x += vector.getX();
         this.y += vector.getY();
     }
 
-    public void descend() {
+    public synchronized void descend() {
         this.add(0.0, GRAVITIONAL_ACCELERATION);
     }
 
-    public void up() {
-        this.add(0.0, -MAIN_ENGINE_POWER);
+    public synchronized void up() {
+        this.add(0.0, -Spaceship.MAIN_ENGINE_POWER);
     }
 
-    public void left() {
-        this.add(-SIDE_ENGINE_POWER, 0.0);
+    public synchronized void left() {
+        this.add(-Spaceship.SIDE_ENGINE_POWER, 0.0);
     }
 
-    public void right() {
-        this.add(SIDE_ENGINE_POWER, 0.0);
+    public synchronized void right() {
+        this.add(Spaceship.SIDE_ENGINE_POWER, 0.0);
     }
 
-    public void reset() {
+    public synchronized void reset() {
         this.setX(0);
         this.setY(0);
+    }
+
+    public boolean isXVelocityLegal() {
+        return (getX() < MAX_X_VELOCITY);
+    }
+
+    public boolean isYVelocityLegal() {
+       return (getY() < MAX_Y_VELOCITY);
+    }
+
+    public boolean isVelocityLegal() {
+        return this.isXVelocityLegal() && this.isYVelocityLegal();
     }
 }

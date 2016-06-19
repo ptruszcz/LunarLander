@@ -1,5 +1,6 @@
 package gameobjects;
 
+import parsers.Parser;
 import physics.Coordinates;
 
 import java.awt.*;
@@ -11,7 +12,7 @@ import java.util.ArrayList;
  */
 public class Surface implements Drawable {
 
-    private int numberOfPoints = 81; //do zmiany
+    private int numberOfPoints = Parser.getPoints(); //do zmiany
     private ArrayList<Coordinates> points;
     private Polygon polygon = new Polygon();
 
@@ -33,7 +34,10 @@ public class Surface implements Drawable {
             this.points.add(new Coordinates(xcoord, ycoord));
             xcoord += 12;
         }
+    }
 
+    public Polygon getPolygon() {
+        return polygon;
     }
 
     @Override

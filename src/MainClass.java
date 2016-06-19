@@ -8,7 +8,8 @@ import gui.*;
  */
 public class MainClass {
     public static void main(String args[]) {
-        //użyć invokeLater
-        new MainFrame().initialize();
+
+        SwingUtilities.invokeLater(() -> new MainFrame().initialize());
+
     }
 }

@@ -1,6 +1,6 @@
 package physics;
 
-import gameobjects.Map;
+import gameobjects.GameMap;
 
 import java.awt.geom.Point2D;
 
@@ -24,8 +24,8 @@ public class Coordinates extends Point2D.Double {
 
 
     public boolean areValid() {
-        if(this.getX() <= Map.X_RESOLUTION && this.getX() >= 0)
-            if(this.getY() <= Map.Y_RESOLUTION && this.getY() >= 0)
+        if(this.getX() <= GameMap.X_RESOLUTION && this.getX() >= 0)
+            if(this.getY() <= GameMap.Y_RESOLUTION && this.getY() >= 0)
                 return true;
         return false;
     }

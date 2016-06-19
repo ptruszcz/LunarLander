@@ -11,8 +11,20 @@ import java.awt.*;
 public class LandingSpot implements Drawable {
 
     /** position of left endpoint of the landing spot */
-    Coordinates coordinate = new Coordinates(200, 500);
+    Coordinates coordinate = new Coordinates(GameMap.X_RESOLUTION/2, 500);
     Coordinates size = new Coordinates(50, 5);
+
+    public Coordinates getCoordinate() {
+        return coordinate;
+    }
+
+    public Coordinates getSize() {
+        return size;
+    }
+
+    public boolean isOverLandingSpot(Coordinates leftLowerCorner) {
+        return coordinate.getX() <= leftLowerCorner.getX() && (coordinate.getX() + size.getX()) >= leftLowerCorner.getX() + Spaceship.SHIP_SIZE;
+    }
 
     @Override
     public void draw(Graphics g) {
