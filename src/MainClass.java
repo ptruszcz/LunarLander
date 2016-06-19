@@ -1,7 +1,7 @@
 import javax.swing.*;
 
 import gui.*;
-import parsers.Parser;
+import parsers.*;
 import java.util.Arrays;
 
 /**
@@ -12,7 +12,6 @@ public class MainClass {
     public static void main(String args[]) {
 
         SwingUtilities.invokeLater(() -> new MainFrame().initialize());
-
-
+        //System.out.print(Arrays.toString(HsParser.getEasy()));
     }
 }
