@@ -3,6 +3,7 @@ package gui;
 import gameobjects.HUD;
 import gameobjects.Spaceship;
 import gameobjects.GameMap;
+import parsers.Parser;
 import physics.VelocityVector;
 
 import javax.swing.*;
@@ -19,9 +20,9 @@ import java.util.Timer;
  */
 public class GamePanel extends JPanel {
 
-    private static final int SPEED = 10;
-    private static final int LAST_LEVEL = 3;
-    private static final int STARTING_LIVES = 3;
+    private static final int SPEED;
+    private static final int LAST_LEVEL;
+    private static final int STARTING_LIVES;
 
     private static final KeyStroke PRESSED_UP = KeyStroke.getKeyStroke(KeyEvent.VK_UP, 0, false);
     private static final KeyStroke RELEASED_UP = KeyStroke.getKeyStroke(KeyEvent.VK_UP, 0, true);
@@ -33,6 +34,9 @@ public class GamePanel extends JPanel {
     private static final KeyStroke PRESSED_RST = KeyStroke.getKeyStroke(KeyEvent.VK_R, 0, false);
 
     static {
+        SPEED = Parser.getSpeed();
+        LAST_LEVEL = Parser.getLastlevel();
+        STARTING_LIVES = Parser.getLives();
 
     }
 

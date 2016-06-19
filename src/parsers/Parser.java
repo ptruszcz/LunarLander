@@ -31,6 +31,14 @@ public final class Parser
         return speed;
     }
 
+    public static int getLastlevel(){
+        Properties properties = loadProperties();
+        System.setProperty("file.encoding", "UTF-8");
+        String lastlevels = properties.getProperty("LAST_LEVEL");
+        int lastlevel = Integer.parseInt(lastlevels);
+        return lastlevel;
+    }
+
     public static int getXres(){
         Properties properties = loadProperties();
         System.setProperty("file.encoding", "UTF-8");
