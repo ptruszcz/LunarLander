@@ -40,15 +40,15 @@ public class GamePanel extends JPanel {
 
     private Image pauseIcon = null;
 
-    private JButton pauseButton = new JButton((Icon)pauseIcon);
+    //private JButton pauseButton = new JButton((Icon)pauseIcon);
 
     public GamePanel() {
         spaceship = new Spaceship(GameMap.X_RESOLUTION/2, GameMap.Y_RESOLUTION*0.1);
         hud = new HUD(spaceship);
         bindKeys();
         actionLoop = new ActionLoop();
-        pauseIcon = ImageParser.loadImage("pauseButton.png");
-        add(pauseButton, RIGHT_ALIGNMENT);
+        pauseIcon = ImageParser.loadImage("pause20.png");
+        //add(pauseButton, RIGHT_ALIGNMENT);
 
     }
 
@@ -123,21 +123,23 @@ public class GamePanel extends JPanel {
         }
 
         private void selectAction(String action) {
-            switch(action) {
-                case "UP":
-                    vector.up();
-                    break;
-                case "RIGHT":
-                    vector.right();
-                    break;
-                case "LEFT":
-                    vector.left();
-                    break;
+            if(spaceship.getFuelLeft() != 0) {
+                switch (action) {
+                    case "UP":
+                        vector.up();
+                        break;
+                    case "RIGHT":
+                        vector.right();
+                        break;
+                    case "LEFT":
+                        vector.left();
+                        break;
+                }
             }
         }
 
         private void toggleAreEnginesActive() {
-            if(pressedKeysList.isEmpty())
+            if(pressedKeysList.isEmpty() || spaceship.getFuelLeft() == 0)
                 spaceship.setAreEnginesWorking(false);
             else
                 spaceship.setAreEnginesWorking(true);
@@ -166,6 +168,6 @@ public class GamePanel extends JPanel {
         spaceship.draw(g2d);
         hud.draw(g2d);
 
-        //g2d.drawImage(pauseIcon, GameMap.X_RESOLUTION - pauseIcon.getWidth(null) - 20, pauseIcon.getHeight(null), null);
+        g2d.drawImage(pauseIcon, GameMap.X_RESOLUTION - pauseIcon.getWidth(null) - 20, pauseIcon.getHeight(null), null);
     }
 }

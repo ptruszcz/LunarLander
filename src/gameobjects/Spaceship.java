@@ -25,19 +25,12 @@ public class Spaceship implements Drawable {
     public static final int Y_FUEL_CONSUMPTION; //units per 0.1 acceleration
 
     static {
-        /*
-        MAIN_ENGINE_POWER = 0.008;
-        SIDE_ENGINE_POWER = 0.008;
-        SHIP_SIZE = 30;
-        STARTING_FUEL = 1000;
-        */
-        X_FUEL_CONSUMPTION = Parser.getFuelconsx();
-        Y_FUEL_CONSUMPTION = Parser.getFuelconsy();
-
         MAIN_ENGINE_POWER = Parser.getMaineng();
         SIDE_ENGINE_POWER = Parser.getSideeng();
         SHIP_SIZE = Parser.getShipsize();
         STARTING_FUEL = Parser.getStartfuel();
+        X_FUEL_CONSUMPTION = Parser.getFuelconsx();
+        Y_FUEL_CONSUMPTION = Parser.getFuelconsy();
     }
 
     public enum State {
