@@ -5,7 +5,6 @@ import physics.Coordinates;
 import physics.VelocityVector;
 
 import java.awt.*;
-import java.awt.geom.Rectangle2D;
 
 /**
  * Created by piotr on 20.05.2016.
@@ -17,7 +16,6 @@ public class Spaceship implements Drawable {
     private VelocityVector velocity;
     private int fuelLeft;
     boolean areEnginesWorking;
-    Rectangle2D rectangle;
 
     public static final double MAIN_ENGINE_POWER;
     public static final double SIDE_ENGINE_POWER;
@@ -27,8 +25,15 @@ public class Spaceship implements Drawable {
     public static final int Y_FUEL_CONSUMPTION; //units per 0.1 acceleration
 
     static {
+        /*
+        MAIN_ENGINE_POWER = 0.008;
+        SIDE_ENGINE_POWER = 0.008;
+        SHIP_SIZE = 30;
+        STARTING_FUEL = 1000;
+        */
         X_FUEL_CONSUMPTION = Parser.getFuelconsx();
         Y_FUEL_CONSUMPTION = Parser.getFuelconsy();
+
         MAIN_ENGINE_POWER = Parser.getMaineng();
         SIDE_ENGINE_POWER = Parser.getSideeng();
         SHIP_SIZE = Parser.getShipsize();
@@ -44,15 +49,12 @@ public class Spaceship implements Drawable {
     public Spaceship(double xCoordinate, double yCoordinate) {
         this.coordinates = new Coordinates(xCoordinate, yCoordinate);
         velocity = new VelocityVector();
-        rectangle = new Rectangle((int)coordinates.getX(), (int)coordinates.getY(), SHIP_SIZE, SHIP_SIZE);
         fuelLeft = STARTING_FUEL;
     }
 
     public Spaceship(Coordinates coordinates) {
         this.coordinates = new Coordinates(coordinates);
         velocity = new VelocityVector();
-        rectangle = new Rectangle((int)coordinates.getX(), (int)coordinates.getY(), SHIP_SIZE, SHIP_SIZE);
-        fuelLeft = STARTING_FUEL;
     }
 
     //zedytować - rzucanie wyjątków itd.
@@ -83,7 +85,6 @@ public class Spaceship implements Drawable {
 
     private void updatePosition(VelocityVector velocity) {
         this.coordinates.update(velocity);
-        rectangle.setFrame(new Rectangle((int)coordinates.getX(), (int)coordinates.getY(), SHIP_SIZE, SHIP_SIZE));
     }
 
     private void updateFuel(VelocityVector vector) {
@@ -101,7 +102,7 @@ public class Spaceship implements Drawable {
         Coordinates leftLowerCorner = new Coordinates(getCoordinates().getX(), getCoordinates().getY() + SHIP_SIZE);
 
         //ograniczyc o rozmiary planszy i predkosc
-        if(gameMap.getSurface().getPolygon().intersects(rectangle)) {
+        if(gameMap.getSurface().getPolygon().contains(leftLowerCorner)) {
             if (gameMap.getLandingSpot().isOverLandingSpot(leftLowerCorner) && velocity.isVelocityLegal())
                 setState(State.LANDED);
             else

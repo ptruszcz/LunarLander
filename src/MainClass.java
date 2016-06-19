@@ -11,7 +11,7 @@ import java.util.Arrays;
 public class MainClass {
     public static void main(String args[]) {
 
-        SwingUtilities.invokeLater(() -> new MainFrame().initialize());
-        //System.out.print(Arrays.toString(HsParser.getEasy()));
+        //SwingUtilities.invokeLater(() -> new MainFrame().initialize());
+        System.out.println(Arrays.toString(HsParser.getEasy()));
     }
 }

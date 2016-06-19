@@ -19,7 +19,7 @@ public class Surface implements Drawable {
 
     public Surface() {
         points = new ArrayList<>(numberOfPoints+2); //żeby wielokąt nie połączył skrajnych punktów, tylko była ładna ziemia
-        points.add(0,new Coordinates(0, GameMap.Y_RESOLUTION));
+        points.add(new Coordinates(0, GameMap.Y_RESOLUTION));
         this.fillArrayList();
         points.add(new Coordinates(GameMap.X_RESOLUTION, GameMap.Y_RESOLUTION));
         for(Coordinates c : points)
@@ -27,14 +27,16 @@ public class Surface implements Drawable {
     }
 
     private void fillArrayList() {
-        int xcoord=0;
+        double xcoord=0;
         double ycoord;
         double[] ycoords = Parser.getYval("1");
-        for(int i = 0; i<numberOfPoints; i++) {
+        for(int i = 0; i<numberOfPoints-1; i++) {
             ycoord = ycoords[i];
             this.points.add(new Coordinates(xcoord, ycoord));
             xcoord += GameMap.X_RESOLUTION/numberOfPoints;
         }
+        xcoord += GameMap.X_RESOLUTION/numberOfPoints;
+        this.points.add(new Coordinates(xcoord, ycoords[ycoords.length-1]));
     }
 
     public Polygon getPolygon() {
