@@ -43,12 +43,11 @@ public final class HsParser {
         return easy;
     }
 
-    /*
     public static String[] getMedium(){
         String[] medium = new String [NUMBER_OF_RECORDS];
         for(int i=0; i<NUMBER_OF_RECORDS; i++){
             String num = Integer.toString(i);
-            medium[i] = String.valueOf(getRecord("MEDIUM",num));
+            medium[i] = Arrays.toString(getRecord("MEDIUM",num));
         }
         return medium;
     }
@@ -57,9 +56,9 @@ public final class HsParser {
         String[] hard = new String [NUMBER_OF_RECORDS];
         for(int i=0; i<NUMBER_OF_RECORDS; i++){
             String num = Integer.toString(i);
-            hard[i] = String.valueOf(getRecord("HARD",num));
+            hard[i] = Arrays.toString(getRecord("HARD",num));
         }
         return hard;
     }
-*/
+
 }
