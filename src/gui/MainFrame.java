@@ -108,6 +108,10 @@ public class MainFrame extends JFrame implements ActionListener {
         return playerScore;
     }
 
+    public static void addScore(int score) {
+        playerScore += score;
+    }
+
     public static int getDifficulty() {
         return difficulty;
     }

@@ -226,6 +226,10 @@ public class GamePanel extends JPanel {
 
     }
 
+    private void saveScore() {
+
+    }
+
     @Override
     public void paintComponent(Graphics g) {
 
