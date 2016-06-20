@@ -17,12 +17,17 @@ public class GameMap implements Drawable {
     static {
         Y_RESOLUTION = Parser.getYres();
         X_RESOLUTION = Parser.getXres();
-
     }
 
-    private Surface surface = new Surface();
-    private LandingSpot spot1 = new LandingSpot(Integer.toString(GamePanel.currentLevel), "1");
-    private LandingSpot spot2 = new LandingSpot(Integer.toString(GamePanel.currentLevel), "2");
+    private Surface surface;
+    private LandingSpot spot1;
+    private LandingSpot spot2;
+
+    public GameMap() {
+        surface = new Surface("1");
+        spot1 = new LandingSpot("1", "1");
+        spot2 = new LandingSpot("1", "2");
+    }
 
     public LandingSpot getLandingSpot1() {
         return spot1;
@@ -33,6 +38,12 @@ public class GameMap implements Drawable {
 
     public Surface getSurface() {
         return surface;
+    }
+
+    public void loadLevel(int lvl) {
+        surface = new Surface(Integer.toString(lvl));
+        spot1 = new LandingSpot(Integer.toString(lvl), "1");
+        spot2 = new LandingSpot(Integer.toString(lvl), "2");
     }
 
     @Override

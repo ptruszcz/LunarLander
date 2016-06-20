@@ -202,10 +202,12 @@ public class GamePanel extends JPanel {
         }
         else if(spaceship.isLanded()) {
             stopGame();
-            if (currentLevel+1 == LAST_LEVEL)
+            currentLevel++;
+            if (currentLevel == LAST_LEVEL+1)
                 checkIfRecord(20);
             else
                 getToTheNextLevel();
+                startGame();
         }
     }
 
@@ -222,7 +224,7 @@ public class GamePanel extends JPanel {
     }
 
     private void getToTheNextLevel() {
-
+        gameMap.loadLevel(currentLevel);
     }
 
     private void gameOver() {
@@ -244,7 +246,6 @@ public class GamePanel extends JPanel {
     public static void loseLife() {
         livesLeft--;
     }
-
 
     @Override
     public void paintComponent(Graphics g) {

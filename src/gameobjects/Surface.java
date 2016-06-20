@@ -17,19 +17,19 @@ public class Surface implements Drawable {
     private ArrayList<Coordinates> points;
     private Polygon polygon = new Polygon();
 
-    public Surface() {
+    public Surface(String lvl) {
         points = new ArrayList<>(numberOfPoints+2); //żeby wielokąt nie połączył skrajnych punktów, tylko była ładna ziemia
         points.add(new Coordinates(0, GameMap.Y_RESOLUTION));
-        this.fillArrayList();
+        this.fillArrayList(lvl);
         points.add(new Coordinates(GameMap.X_RESOLUTION, GameMap.Y_RESOLUTION));
         for(Coordinates c : points)
             polygon.addPoint((int)c.getX(), (int)c.getY());
     }
 
-    private void fillArrayList() {
+    private void fillArrayList(String lvl) {
         double xcoord=0;
         double ycoord;
-        double[] ycoords = Parser.getYval("1");
+        double[] ycoords = Parser.getYval(lvl);
         for(int i = 0; i<numberOfPoints-1; i++) {
             ycoord = ycoords[i];
             this.points.add(new Coordinates(xcoord, ycoord));
