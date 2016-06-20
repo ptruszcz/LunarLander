@@ -19,7 +19,7 @@ public class MainFrame extends JFrame implements ActionListener {
     /** nazwa gracza */
     private static String playerName = null;
     /** aktualny poziom trudności */
-    private static int difficulty;
+    private static int difficulty = 1;
     /** aktualny wynik gracza */
     private static int playerScore;
 
@@ -68,9 +68,11 @@ public class MainFrame extends JFrame implements ActionListener {
         String action = e.getActionCommand();
         switch (action) {
             case "START":
+                gamePanel.currentLevel = 1;
                 cardLayout.show(cardsContainer, "Difficulty");
                 break;
             case "RECORDS":
+                cardsContainer.add(MenuPanelBuilder.buildRecordsPanel(), "Records");
                 cardLayout.show(cardsContainer, "Records");
                 break;
             case "BACK":
@@ -111,6 +113,22 @@ public class MainFrame extends JFrame implements ActionListener {
             case "SUBMIT!":
                 cardLayout.show(cardsContainer, "Records");
                 //write name to records
+                break;
+            case "LEFT_REC":
+                if(difficulty == 1)
+                    difficulty = 3;
+                else
+                    difficulty--;
+                cardsContainer.add(MenuPanelBuilder.buildRecordsPanel(), "Records");
+                cardLayout.show(cardsContainer, "Records");
+                break;
+            case "RIGHT_REC":
+                if(difficulty == 3)
+                    difficulty = 1;
+                else
+                    difficulty++;
+                cardsContainer.add(MenuPanelBuilder.buildRecordsPanel(), "Records");
+                cardLayout.show(cardsContainer, "Records");
                 break;
 
         }

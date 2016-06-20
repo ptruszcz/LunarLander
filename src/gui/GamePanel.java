@@ -3,6 +3,7 @@ package gui;
 import gameobjects.HUD;
 import gameobjects.Spaceship;
 import gameobjects.GameMap;
+import parsers.HsParser;
 import parsers.Parser;
 import physics.VelocityVector;
 import sun.applet.Main;
@@ -286,10 +287,34 @@ public class GamePanel extends JPanel {
      * @param score wynik do sprawdzenia
      */
     private void checkIfRecord(int score) {
-        if (score > 1)
+        String x;
+        switch(MainFrame.getDifficulty()) {
+            case 1:
+                x = "EASY";
+                break;
+            case 2:
+                x = "MEDIUM";
+                break;
+            case 3:
+                x = "HARD";
+                break;
+            default:
+                x = "EASY";
+
+        }
+        if (score > Integer.parseInt(HsParser.getRecord(x, "4")[1])){
             context.actionPerformed(new ActionEvent(this, 0, "NEW_RECORD"));
-        else
+            for(int n=0; n<4; n++){
+                int record = Integer.parseInt(HsParser.getRecord(Integer.toString(MainFrame.getDifficulty()), Integer.toString(n))[1]);
+                if (score > record){
+                    String i = Integer.toString(n);
+                    HsParser.setScore(i, MainFrame.getPlayerName(), Integer.toString(score));
+                }
+            }
+        }
+        else{
             context.actionPerformed(new ActionEvent(this, 0, "GAME_OVER"));
+        }
     }
 
     /** przywraca liczbę żyć do początkowego stanu */

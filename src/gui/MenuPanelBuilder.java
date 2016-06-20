@@ -1,5 +1,8 @@
 package gui;
 
+import parsers.HsParser;
+import parsers.Parser;
+
 import javax.swing.*;
 import javax.swing.plaf.basic.BasicArrowButton;
 import java.awt.*;
@@ -121,19 +124,52 @@ public class MenuPanelBuilder {
         panel.add(createTitle("RECORDS", 60), BorderLayout.NORTH);
 
         BasicArrowButton leftButton = new BasicArrowButton(SwingConstants.WEST);
-        panel.add(leftButton, BorderLayout.WEST);
+        leftButton.setActionCommand("LEFT_REC");
+        leftButton.addActionListener(context);
+        panel.add(leftButton, BorderLayout.WEST, 0);
 
         BasicArrowButton rightButton = new BasicArrowButton(SwingConstants.EAST);
-        panel.add(rightButton, BorderLayout.EAST);
+        rightButton.setActionCommand("RIGHT_REC");
+        rightButton.addActionListener(context);
+        panel.add(rightButton, BorderLayout.EAST, 1);
 
         JPanel backButtonPanel= new JPanel(new FlowLayout(FlowLayout.LEADING)); //rozwiązane w ten sposób, żeby był tam gdzie trzeba
         backButtonPanel.add(buildTextButton("BACK"));
         backButtonPanel.setBackground(Color.black);
         panel.add(backButtonPanel,  BorderLayout.SOUTH);
 
-        JLabel cos = new JLabel("TABELA", SwingConstants.CENTER);
-        panel.add(cos, BorderLayout.CENTER);
+        String[] records = HsParser.getEasy();
+        GridBagConstraints gBC = new GridBagConstraints();
+        JPanel recPanel = new JPanel(new GridBagLayout());
+        panel.add(recPanel, BorderLayout.CENTER);
 
+        recPanel.setBackground(Color.black);
+        gBC.fill = GridBagConstraints.VERTICAL;
+        gBC.gridwidth = 3;
+
+        gBC.gridy = 0;
+        switch(MainFrame.getDifficulty()) {
+            case 1:
+                recPanel.add(createTitle("EASY", 50), gBC);
+                records = HsParser.getEasy();
+                break;
+            case 2:
+                recPanel.add(createTitle("MEDIUM", 50), gBC);
+                records = HsParser.getMedium();
+                break;
+            case 3:
+                recPanel.add(createTitle("HARD", 50), gBC);
+                records = HsParser.getHard();
+                break;
+            default:
+                recPanel.add(createTitle("Error!", 50), gBC);
+        }
+        gBC.gridy = 1;
+        for (String r : records) {
+            String x = r.replaceAll("\\[", "").replaceAll("\\]", "").replaceAll(",", "\t");
+            recPanel.add(createTitle(x, 50), gBC);
+            gBC.gridy++;
+        }
         return panel;
     }
 

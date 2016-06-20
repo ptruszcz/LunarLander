@@ -1,9 +1,8 @@
 package parsers;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import gui.MainFrame;
+
+import java.io.*;
 import java.util.Arrays;
 import java.util.Properties;
 
@@ -59,6 +58,25 @@ public final class HsParser {
             hard[i] = Arrays.toString(getRecord("HARD",num));
         }
         return hard;
+    }
+
+    public static void saveProperties(String nameKey, String scoreKey, String name, String score) {
+        String path = new File("highscores.properties").getAbsolutePath();
+        File file = new File(path);
+        Properties properties = new Properties();
+        OutputStream sets;
+        try {
+            sets = new FileOutputStream(file);
+            properties.setProperty(nameKey, name);
+            properties.setProperty(scoreKey, score);
+            properties.store(sets, null);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void setScore(String n, String name, String score){
+        saveProperties(Integer.toString(MainFrame.getDifficulty())+"_NAME"+n, Integer.toString(MainFrame.getDifficulty())+"_POINTS"+n, name, score);
     }
 
 }
