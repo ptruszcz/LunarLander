@@ -16,22 +16,32 @@ import java.util.*;
 import java.util.Timer;
 
 /**
- * Created by piotr on 19.05.2016.
- *
+ * Klasa panelu gry. Na nim rysowane są wszystkie elementy i wyświetlany jest interfejs.
  */
 public class GamePanel extends JPanel {
 
+    /** stała określająca co ile ms na być odświeżana gra */
     private static final int SPEED;
+    /** liczba poziomów */
     private static final int LAST_LEVEL;
+    /** początkowa liczba żyć */
     private static final int STARTING_LIVES;
 
+    /** KeyStroke dla wciśnięcia strzałki w górę */
     private static final KeyStroke PRESSED_UP = KeyStroke.getKeyStroke(KeyEvent.VK_UP, 0, false);
+    /** KeyStroke dla pusczenia strzałki w górę */
     private static final KeyStroke RELEASED_UP = KeyStroke.getKeyStroke(KeyEvent.VK_UP, 0, true);
+    /** KeyStroke dla wciśnięcia strzałki w lewo */
     private static final KeyStroke PRESSED_LEFT = KeyStroke.getKeyStroke(KeyEvent.VK_LEFT, 0, false);
+    /** KeyStroke dla puszczenia strzałki w lewo */
     private static final KeyStroke RELEASED_LEFT = KeyStroke.getKeyStroke(KeyEvent.VK_LEFT, 0, true);
+    /** KeyStroke dla wciśnięcia strzałki w prawo */
     private static final KeyStroke PRESSED_RIGHT = KeyStroke.getKeyStroke(KeyEvent.VK_RIGHT, 0, false);
+    /** KeyStroke dla puszczenia strzałki w prawo */
     private static final KeyStroke RELEASED_RIGHT = KeyStroke.getKeyStroke(KeyEvent.VK_RIGHT, 0, true);
+    /** KeyStroke dla wciśnięcia spacji */
     private static final KeyStroke PRESSED_SPACE = KeyStroke.getKeyStroke(KeyEvent.VK_SPACE, 0, false);
+    /** KeyStroke dla wciśnięcia resetu (klawisz r, funkcja deweloperska) */
     private static final KeyStroke PRESSED_RST = KeyStroke.getKeyStroke(KeyEvent.VK_R, 0, false);
 
     static {
@@ -40,23 +50,38 @@ public class GamePanel extends JPanel {
         STARTING_LIVES = Parser.getLives();
     }
 
+    /** kolekcja przechowująca listę aktualnie wciśniętych klawiszy */
     private HashSet<String> pressedKeysList = new HashSet<>();
 
+    /** timer zarządzający wykonywaniem pętli gry */
     private Timer timer = null;
+    /** element nasłuchujący na wydarzenia w panelu. W tym przypadku będzie nim okno główne */
     private ActionListener context = null;
 
+    /** zmienna przechowująca aktualny poziom */
     public static int currentLevel=1;
+    /** zmienna przechowująca pozostałą ilość żyć */
     public static int livesLeft;
 
+    /** zmienna przechowująca wynik zdobyty na danym poziomie */
     public static int levelScore;
 
+    /** pole przechowujące instancję aktualnej planszy */
     private GameMap gameMap = new GameMap();
+    /** pole przechowujące instancję statku */
     private Spaceship spaceship = null;
+    /** pole przechowujące instancję interfejsu użytkownika */
     private HUD hud = null;
 
+    /** zmienna przechowująca instancję pętli programu, która jest zadaniem dla Timera */
     private ActionLoop actionLoop = null;
+    /** wektor prędkości który w każdym wykonaniu pętli zostanie dodany do statku */
     private VelocityVector vector = new VelocityVector();
 
+    /**
+     * konstruktor inicjujący wszystkie obiekty i zmienne oraz przypisujący klawisze do akcji
+     * @param context okno główne programu nasłuchujące na zdarzenia
+     */
     public GamePanel(ActionListener context) {
         spaceship = new Spaceship(GameMap.X_RESOLUTION/2, GameMap.Y_RESOLUTION*0.1);
         hud = new HUD(spaceship);
@@ -71,6 +96,9 @@ public class GamePanel extends JPanel {
     }
 
 
+    /**
+     * metoda przypisująca przyciski do akcji
+     */
     private void bindKeys() {
         int whenIFW= JComponent.WHEN_IN_FOCUSED_WINDOW;
 
@@ -99,19 +127,33 @@ public class GamePanel extends JPanel {
         actionMap.put("R_RIGHT", new Movement("RIGHT", "R"));
 
         actionMap.put("P_SPACE", new Movement("SPACE", "SPACE"));
-        actionMap.put("P_RST", new Movement("RST", "RST"));
+        //actionMap.put("P_RST", new Movement("RST", "RST")); //opcja deweloperska
     }
 
+    /**
+     * klasa decydująca o akcji wykonanej przez statek na podstawie wciśnięcia przycisków
+     */
     private class Movement extends AbstractAction {
 
+        /** zmienna decydująca o tym jaki ruch wykonać */
         private String move = null;
+        /** zmienna mówiąca o tym, czy przycisk został wciśnięty czy puszczony */
         private String pressedOrReleased = null;
 
+        /**
+         * konstruktor akcji
+         * @param move jaki ruch wykonać
+         * @param pressedOrReleased czy przycisk został wciśnięty czy puszczony
+         */
         public Movement(String move, String pressedOrReleased) {
             this.move = move;
             this.pressedOrReleased = pressedOrReleased;
         }
 
+        /**
+         * metoda pauzująca grę lub dodająca i uwuwająca przycisk z listy aktywnych klawiszy
+         * @param e zdarzenie wciśnięcia lub puszczenia przycisku
+         */
         @Override
         public void actionPerformed(ActionEvent e) {
             switch(pressedOrReleased) {
@@ -131,7 +173,13 @@ public class GamePanel extends JPanel {
         }
     }
 
+    /**
+     * zadanie Timera, główna pętla programu której częstotliwość jest zarządzana przez timer
+     */
     private class ActionLoop extends TimerTask {
+        /**
+         * główna pętla programu
+         */
         @Override
         public void run() {
             checkGameState();
@@ -149,6 +197,10 @@ public class GamePanel extends JPanel {
             repaint();
         }
 
+        /**
+         * metoda decydująca o ruchu statku na podstawie wykonanej akcji
+         * @param action wykonana akcja
+         */
         private void selectAction(String action) {
             if (spaceship.getFuelLeft() != 0) {
                 switch (action) {
@@ -165,6 +217,9 @@ public class GamePanel extends JPanel {
             }
         }
 
+        /**
+         * metoda włączająca i wyłączająca silniki na podstawie tego, czy przyciski są wciśnięte
+         */
         private void toggleAreEnginesActive() {
             if(pressedKeysList.isEmpty() || spaceship.getFuelLeft() == 0)
                 spaceship.setAreEnginesWorking(false);
@@ -173,6 +228,9 @@ public class GamePanel extends JPanel {
         }
     }
 
+    /**
+     * rozpoczyna grę inicjując wszystkie elementy i kolejkując zadanie
+     */
     public void startGame() {
         spaceship = new Spaceship(GameMap.X_RESOLUTION/2, GameMap.Y_RESOLUTION*0.1);
         timer = new Timer();
@@ -181,16 +239,25 @@ public class GamePanel extends JPanel {
         timer.scheduleAtFixedRate(actionLoop, 0, SPEED);
     }
 
+    /**
+     * anuluje wykonywanie pętli programu i czyści listę aktywnych przycisków
+     */
     public void stopGame() {
         timer.cancel();
         pressedKeysList.clear();
     }
 
+    /**
+     * zatrzymuje program i uruchamia go ponownie
+     */
     private void restart() {
         stopGame();
         startGame();
     }
 
+    /**
+     * sprawdza aktualny stan gry i podejmuje odpowiednie decyzje na tej podstawie. Jeśli gra ma się zakończyć inicjuje to.
+     */
     private void checkGameState() {
         if(spaceship.isCrashed()) {
             stopGame();
@@ -214,7 +281,10 @@ public class GamePanel extends JPanel {
         }
     }
 
-    /** *********** */
+    /**
+     * sprawdza czy został pobity rekord
+     * @param score wynik do sprawdzenia
+     */
     private void checkIfRecord(int score) {
         if (score > 1)
             context.actionPerformed(new ActionEvent(this, 0, "NEW_RECORD"));
@@ -222,14 +292,17 @@ public class GamePanel extends JPanel {
             context.actionPerformed(new ActionEvent(this, 0, "GAME_OVER"));
     }
 
+    /** przywraca liczbę żyć do początkowego stanu */
     public static void resetLives() {
         setLivesLeft(STARTING_LIVES);
     }
 
+    /** wywołuje wczytanie kolejnego poziomu */
     private void getToTheNextLevel() {
         gameMap.loadLevel(currentLevel);
     }
 
+    /** zapisuje aktualny wynik z danego poziomu do wyniku ogólnego */
     private void saveScore() {
         levelScore = spaceship.getFuelLeft();
         levelScore *= getLivesLeft();
@@ -237,18 +310,31 @@ public class GamePanel extends JPanel {
         MainFrame.addScore(levelScore);
     }
 
+    /**
+     * getter pozostałej liczby żyć
+     * @return pozostała liczba żyć
+     */
     public static int getLivesLeft() {
         return livesLeft;
     }
 
+    /**
+     * setter pozostałej liczby żyć
+     * @param livesLeft1 liczba żyć do ustawienia
+     */
     public static void setLivesLeft(int livesLeft1) {
         livesLeft = livesLeft1;
     }
 
+    /** metoda zmiejszająca liczbę żyć o 1 */
     public static void loseLife() {
         livesLeft--;
     }
 
+    /**
+     * metoda typu callback, rysująca wszystkie elementy interfejsu i gry
+     * @param g kontekst graficzny
+     */
     @Override
     public void paintComponent(Graphics g) {
 

@@ -1,7 +1,5 @@
 package gui;
 
-import parsers.*;
-
 import javax.swing.*;
 import javax.swing.plaf.basic.BasicArrowButton;
 import java.awt.*;
@@ -9,17 +7,24 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * Created by piotr on 20.05.2016.
- *
+ * Budowniczy i zarządca budowy menusów.
  */
 public class MenuPanelBuilder {
 
+    /** ActionListener nasłuchujący na aktywność, np. wciśnięcie klawiszy. W tym wypadku okno główne progarmu */
     public static ActionListener context;
 
+    /** metoda ustawiająca nasłuchiwacza i przypisująca go do odpowiedniego pola */
     public static void passContext(ActionListener actionListener) {
        context = actionListener;
     }
 
+    /**
+     * metoda tworząca tytuł o określonych parametrach
+     * @param text tekst tytułu
+     * @param size rozmiar tytułu
+     * @return utworzony tytuł
+     */
     static private JLabel createTitle(String text, int size) {
         JLabel title = new JLabel(text, SwingConstants.CENTER);
         title.setFont(new Font("Serif", Font.BOLD, size));
@@ -27,6 +32,11 @@ public class MenuPanelBuilder {
         return title;
     }
 
+    /**
+     * metoda tworząca przycisk o określonych parametrach i dodająca do niego ActionListenera
+     * @param text tekst na przycisku
+     * @return utworzony przycisk
+     */
     static private JButton buildTextButton(String text) {
         JButton button = new JButton(text);
 
@@ -42,6 +52,10 @@ public class MenuPanelBuilder {
         return button;
     }
 
+    /**
+     * metoda budująca menu główne
+     * @return utworzone menu
+     */
     static public JPanel buildMainMenuPanel() {
         JPanel panel = new JPanel();
         panel.setLayout(new GridBagLayout());
@@ -67,6 +81,10 @@ public class MenuPanelBuilder {
         return panel;
     }
 
+    /**
+     * metoda budująca menu wyboru poziomu trudności
+     * @return utworzone menu
+     */
     static public JPanel buildDifficultyPanel() {
         JPanel panel = new JPanel();
         panel.setLayout(new GridBagLayout());
@@ -91,6 +109,10 @@ public class MenuPanelBuilder {
         return panel;
     }
 
+    /**
+     * metoda budująca menu rekordów
+     * @return utworzone menu
+     */
     static public JPanel buildRecordsPanel() {
         JPanel panel = new JPanel();
         panel.setLayout(new BorderLayout());
@@ -115,6 +137,10 @@ public class MenuPanelBuilder {
         return panel;
     }
 
+    /**
+     * metoda budująca ekran porażki
+     * @return utworzony ekran
+     */
     static public JPanel buildGameOverPanel() {
         JPanel panel = new JPanel();
         panel.setLayout(new GridBagLayout());
@@ -133,6 +159,10 @@ public class MenuPanelBuilder {
         return panel;
     }
 
+    /**
+     * metoda budująca ekran pobicia rekordu
+     * @return utworzony ekran
+     */
     static public JPanel buildNewRecordPanel() {
         JPanel panel = new JPanel();
         panel.setLayout(new GridBagLayout());

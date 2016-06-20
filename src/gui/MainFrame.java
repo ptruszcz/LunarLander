@@ -105,7 +105,10 @@ public class MainFrame extends JFrame implements ActionListener {
 
     public static void setPlayerName(String name) {
         playerName = name;
-        System.out.println(playerName);
+    }
+
+    public static String getPlayerName() {
+        return playerName;
     }
 
     public static void setPlayerScore(int score) {
