@@ -43,12 +43,10 @@ public class GamePanel extends JPanel {
     private HashSet<String> pressedKeysList = new HashSet<>();
 
     private Timer timer = null;
-
-
     private ActionListener context = null;
 
     private int currentLevel;
-    private int livesLeft;
+    public static int livesLeft;
 
     private GameMap gameMap = new GameMap();
     private Spaceship spaceship = null;
@@ -193,7 +191,8 @@ public class GamePanel extends JPanel {
     private void checkGameState() {
         if(spaceship.isCrashed()) {
             stopGame();
-            if (livesLeft != 0) {
+            if (getLivesLeft() > 1) {
+                loseLife();
                 restart();
             }
             else {
@@ -219,7 +218,7 @@ public class GamePanel extends JPanel {
     }
 
     private void resetLives() {
-        livesLeft = STARTING_LIVES;
+        setLivesLeft(STARTING_LIVES);
     }
 
     private void getToTheNextLevel() {
@@ -232,6 +231,18 @@ public class GamePanel extends JPanel {
 
     private void saveScore() {
 
+    }
+
+    public static int getLivesLeft() {
+        return livesLeft;
+    }
+
+    public static void setLivesLeft(int livesLeft1) {
+        livesLeft = livesLeft1;
+    }
+
+    public static void loseLife() {
+        livesLeft--;
     }
 
     @Override

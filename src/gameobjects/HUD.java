@@ -1,5 +1,7 @@
 package gameobjects;
 
+import gui.GamePanel;
+
 import java.awt.*;
 
 /**
@@ -30,6 +32,7 @@ public class HUD implements Drawable {
 
         g.drawString("Position: " + String.format("%.2f %.2f", spaceship.getCoordinates().getX(), spaceship.getCoordinates().getY()), 1, 50);
         g.drawString("Fuel left: " + spaceship.getFuelLeft(), 1, 65);
+        g.drawString("Lives left: " + GamePanel.getLivesLeft(), 1, 80);
 
         if(spaceship.isPaused())
             g.drawString("Press SPACE to unpause game", GameMap.X_RESOLUTION - 200, 20);

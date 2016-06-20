@@ -19,6 +19,7 @@ public class Spaceship implements Drawable {
     boolean areEnginesWorking;
     Rectangle2D rectangle;
 
+
     public static final double MAIN_ENGINE_POWER;
     public static final double SIDE_ENGINE_POWER;
     public static final int SHIP_SIZE;
@@ -34,6 +35,7 @@ public class Spaceship implements Drawable {
         SHIP_SIZE = Parser.getShipsize();
         STARTING_FUEL = Parser.getStartfuel();
     }
+
 
     public enum State {
         LANDED, CRASHED, IN_AIR, PAUSED
@@ -139,6 +141,8 @@ public class Spaceship implements Drawable {
         else
             this.setState(State.PAUSED);
     }
+
+
 
     public void setAreEnginesWorking(boolean areWorking) {
         areEnginesWorking = areWorking;
