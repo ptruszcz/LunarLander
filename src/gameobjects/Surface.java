@@ -2,21 +2,26 @@ package gameobjects;
 
 import parsers.Parser;
 import physics.Coordinates;
-import gameobjects.GameMap;
 
 import java.awt.*;
 import java.util.ArrayList;
 
 /**
- * Created by piotr on 20.05.2016.
- *
+ * Metoda reprezentująca powierzchnię planety
  */
 public class Surface implements Drawable {
 
-    private int numberOfPoints = Parser.getPoints(); //do zmiany
+    /** liczba punktów do narysowania */
+    private int numberOfPoints = Parser.getPoints();
+    /** lista punktów z których składa się powierzchnia */
     private ArrayList<Coordinates> points;
+    /** wielokąt który de facto jest powierzchnią planety */
     private Polygon polygon = new Polygon();
 
+    /**
+     *  konstruktor tworzący powierzchnię dla danego poziomu
+     * @param lvl poziom
+     */
     public Surface(String lvl) {
         points = new ArrayList<>(numberOfPoints+2); //żeby wielokąt nie połączył skrajnych punktów, tylko była ładna ziemia
         points.add(new Coordinates(0, GameMap.Y_RESOLUTION));
@@ -26,6 +31,10 @@ public class Surface implements Drawable {
             polygon.addPoint((int)c.getX(), (int)c.getY());
     }
 
+    /**
+     * metoda wypełniająca tablicę punktów załadowanymi z pliku konfiguracyjnego
+     * @param lvl
+     */
     private void fillArrayList(String lvl) {
         double xcoord=0;
         double ycoord;
@@ -39,10 +48,18 @@ public class Surface implements Drawable {
         this.points.add(new Coordinates(xcoord, ycoords[ycoords.length-1]));
     }
 
+    /**
+     * getter wielokątu-powierzchni
+     * @return wielokąt który jest powierzchnią planety
+     */
     public Polygon getPolygon() {
         return polygon;
     }
 
+    /**
+     * metoda rysujaca powierzchnię planety
+     * @param g kontekst graficzny
+     */
     @Override
     public void draw(Graphics g) {
         g.setColor(Color.lightGray);
