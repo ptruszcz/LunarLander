@@ -13,14 +13,15 @@ public class LandingSpot implements Drawable {
 
     Coordinates coordinate;
     Coordinates size;
+    int value;
 
     public LandingSpot(String level, String num) {
         coordinate = new Coordinates(Parser.getSpotcoords(level, num)[0], Parser.getSpotcoords(level, num)[1]);
         size = new Coordinates(Parser.getSpotsize(level, num), 5);
+        value = Parser.getSpotpoints(level, num);
     }
+
     /** position of left endpoint of the landing spot */
-
-
     public Coordinates getCoordinate() {
         return coordinate;
     }
@@ -35,7 +36,11 @@ public class LandingSpot implements Drawable {
 
     @Override
     public void draw(Graphics g) {
-        g.setColor(Color.red);
+        if(value <= 40)
+            g.setColor(Color.red);
+        else
+            g.setColor(Color.green);
+
         g.fillRect((int)coordinate.getX(), (int)coordinate.getY(), (int)size.getX(), (int)size.getY());
     }
 
