@@ -11,9 +11,15 @@ import java.awt.*;
  */
 public class LandingSpot implements Drawable {
 
+    Coordinates coordinate;
+    Coordinates size;
+
+    public LandingSpot(String level, String num) {
+        coordinate = new Coordinates(Parser.getSpotcoords(level, num)[0], Parser.getSpotcoords(level, num)[1]);
+        size = new Coordinates(Parser.getSpotsize(level, num), 5);
+    }
     /** position of left endpoint of the landing spot */
-    Coordinates coordinate = new Coordinates(Parser.getSpotcoords("1", "1")[0], Parser.getSpotcoords("1", "1")[1]);
-    Coordinates size = new Coordinates(Parser.getSpotsize("1", "1"), 5);
+
 
     public Coordinates getCoordinate() {
         return coordinate;

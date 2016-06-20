@@ -37,7 +37,6 @@ public class GamePanel extends JPanel {
         SPEED = Parser.getSpeed();
         LAST_LEVEL = Parser.getLastlevel();
         STARTING_LIVES = Parser.getLives();
-
     }
 
     private HashSet<String> pressedKeysList = new HashSet<>();
@@ -47,8 +46,8 @@ public class GamePanel extends JPanel {
 
     private ActionListener context = null;
 
-    private int currentLevel;
-    private int livesLeft;
+    public static int currentLevel=1;
+    public int livesLeft;
 
     private GameMap gameMap = new GameMap();
     private Spaceship spaceship = null;

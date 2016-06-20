@@ -102,7 +102,7 @@ public class Spaceship implements Drawable {
 
         //ograniczyc o rozmiary planszy i predkosc
         if(gameMap.getSurface().getPolygon().intersects(rectangle)) {
-            if (gameMap.getLandingSpot().isOverLandingSpot(leftLowerCorner) && velocity.isVelocityLegal())
+            if ((gameMap.getLandingSpot1().isOverLandingSpot(leftLowerCorner) || gameMap.getLandingSpot2().isOverLandingSpot(leftLowerCorner)) && velocity.isVelocityLegal())
                 setState(State.LANDED);
             else
                 setState(State.CRASHED);
