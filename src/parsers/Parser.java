@@ -172,19 +172,27 @@ public final class Parser
         return bonuscoords;
     }
 
-    public static int[] getSpotcoords(String level, String diff){
+    public static int[] getSpotcoords(String level, String num){
         Properties properties = loadProperties();
         System.setProperty("file.encoding", "UTF-8");
-        String[] sc = properties.getProperty("LANDING_SPOT"+level+diff).split(" ");
+        String[] sc = properties.getProperty("LANDING_SPOT"+level+num).split(" ");
         int[] spotcoords = Arrays.stream(sc).mapToInt(Integer::parseInt).toArray();
         return spotcoords;
     }
 
-    public static int getSpotsize(String level, String diff){
+    public static int getSpotsize(String level, String num){
         Properties properties = loadProperties();
         System.setProperty("file.encoding", "UTF-8");
-        String ssize = properties.getProperty("LANDING_SPOT_SIZE"+level+diff);
+        String ssize = properties.getProperty("LANDING_SPOT_SIZE"+level+num);
         int spotsize = Integer.parseInt(ssize);
         return spotsize;
+    }
+
+    public static int getSpotpoints(String level, String num){
+        Properties properties = loadProperties();
+        System.setProperty("file.encoding", "UTF-8");
+        String pointss = properties.getProperty("LANDING_SPOT_POINTS"+level+num);
+        int points = Integer.parseInt(pointss);
+        return points;
     }
 }

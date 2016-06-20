@@ -1,4 +1,6 @@
 import javax.swing.*;
+import javax.swing.text.html.parser.*;
+import javax.swing.text.html.parser.Parser;
 
 import gui.*;
 import parsers.*;
@@ -12,6 +14,8 @@ public class MainClass {
     public static void main(String args[]) {
 
         SwingUtilities.invokeLater(() -> new MainFrame().initialize());
-        //System.out.println(Arrays.toString(HsParser.getEasy()));
+        //System.out.println(Arrays.toString(parsers.Parser.getSpotcoords("1", "1")));
+        //System.out.println(Arrays.toString(parsers.Parser.getSpotcoords("1", "2")));
+
     }
 }

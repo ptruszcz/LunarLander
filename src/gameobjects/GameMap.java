@@ -1,6 +1,7 @@
 package gameobjects;
 
 import parsers.Parser;
+import gui.GamePanel;
 
 import java.awt.*;
 
@@ -20,10 +21,14 @@ public class GameMap implements Drawable {
     }
 
     private Surface surface = new Surface();
-    private LandingSpot spot = new LandingSpot();
+    private LandingSpot spot1 = new LandingSpot(Integer.toString(GamePanel.currentLevel), "1");
+    private LandingSpot spot2 = new LandingSpot(Integer.toString(GamePanel.currentLevel), "2");
 
-    public LandingSpot getLandingSpot() {
-        return spot;
+    public LandingSpot getLandingSpot1() {
+        return spot1;
+    }
+    public LandingSpot getLandingSpot2() {
+        return spot2;
     }
 
     public Surface getSurface() {
@@ -33,6 +38,7 @@ public class GameMap implements Drawable {
     @Override
     public void draw(Graphics g) {
         surface.draw(g);
-        spot.draw(g);
+        spot1.draw(g);
+        spot2.draw(g);
     }
 }

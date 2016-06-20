@@ -37,7 +37,6 @@ public class GamePanel extends JPanel {
         SPEED = Parser.getSpeed();
         LAST_LEVEL = Parser.getLastlevel();
         STARTING_LIVES = Parser.getLives();
-
     }
 
     private HashSet<String> pressedKeysList = new HashSet<>();
@@ -45,7 +44,7 @@ public class GamePanel extends JPanel {
     private Timer timer = null;
     private ActionListener context = null;
 
-    private int currentLevel;
+    public static int currentLevel=1;
     public static int livesLeft;
 
     private GameMap gameMap = new GameMap();
