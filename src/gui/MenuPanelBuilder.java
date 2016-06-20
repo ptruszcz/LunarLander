@@ -116,10 +116,20 @@ public class MenuPanelBuilder {
     }
 
     static public JPanel buildGameOverPanel() {
-        JPanel panel = new JPanel(new BorderLayout());
+        JPanel panel = new JPanel();
+        panel.setLayout(new GridBagLayout());
         panel.setBackground(Color.black);
-        panel.add(createTitle("GAME OVER", 80), BorderLayout.CENTER);
-        panel.add(buildTextButton("BACK"), BorderLayout.SOUTH);
+        GridBagConstraints gBC = new GridBagConstraints();
+        gBC.fill = GridBagConstraints.VERTICAL;
+        gBC.gridwidth = 3;
+
+        gBC.gridy = 0;
+        panel.add(createTitle("GAME OVER", 80), gBC);
+        gBC.gridy = 1;
+        panel.add(createTitle("Your score: " + MainFrame.getPlayerScore(), 30), gBC);
+        gBC.gridy = 2;
+        panel.add(buildTextButton("BACK"), gBC);
+
         return panel;
     }
 
@@ -146,11 +156,13 @@ public class MenuPanelBuilder {
         });
 
         gBC.gridy = 0;
-        panel.add(createTitle("NEW RECORD!", 80), gBC, 0);
+        panel.add(createTitle("NEW RECORD!", 80), gBC);
         gBC.gridy = 1;
-        panel.add(textField, gBC, 1);
+        panel.add(createTitle("Your score: "+MainFrame.getPlayerScore(), 30), gBC);
         gBC.gridy = 2;
-        panel.add(button, gBC, 2);
+        panel.add(textField, gBC);
+        gBC.gridy = 3;
+        panel.add(button, gBC);
 
         return panel;
     }

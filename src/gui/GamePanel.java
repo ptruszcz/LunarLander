@@ -5,6 +5,7 @@ import gameobjects.Spaceship;
 import gameobjects.GameMap;
 import parsers.Parser;
 import physics.VelocityVector;
+import sun.applet.Main;
 
 import javax.swing.*;
 import java.awt.*;
@@ -46,6 +47,8 @@ public class GamePanel extends JPanel {
 
     public static int currentLevel=1;
     public static int livesLeft;
+
+    public static int levelScore;
 
     private GameMap gameMap = new GameMap();
     private Spaceship spaceship = null;
@@ -197,14 +200,14 @@ public class GamePanel extends JPanel {
             }
             else {
                 checkIfRecord(MainFrame.getPlayerScore());
-                gameOver();
             }
         }
         else if(spaceship.isLanded()) {
             stopGame();
+            saveScore();
             currentLevel++;
             if (currentLevel == LAST_LEVEL+1)
-                checkIfRecord(20);
+                checkIfRecord(MainFrame.getPlayerScore());
             else
                 getToTheNextLevel();
                 startGame();
@@ -227,12 +230,11 @@ public class GamePanel extends JPanel {
         gameMap.loadLevel(currentLevel);
     }
 
-    private void gameOver() {
-
-    }
-
     private void saveScore() {
-
+        levelScore = spaceship.getFuelLeft();
+        levelScore *= getLivesLeft();
+        System.out.println(levelScore);
+        MainFrame.addScore(levelScore);
     }
 
     public static int getLivesLeft() {

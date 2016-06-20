@@ -70,24 +70,29 @@ public class MainFrame extends JFrame implements ActionListener {
                 cardLayout.show(cardsContainer, "Game");
                 difficulty = 1;
                 GamePanel.resetLives();
+                resetScore();
                 gamePanel.startGame();
                 break;
             case "MEDIUM":
                 cardLayout.show(cardsContainer, "Game");
                 difficulty = 2;
                 GamePanel.resetLives();
+                resetScore();
                 gamePanel.startGame();
                 break;
             case "HARD":
                 cardLayout.show(cardsContainer, "Game");
                 difficulty = 3;
                 GamePanel.resetLives();
+                resetScore();
                 gamePanel.startGame();
                 break;
             case "GAME_OVER":
+                cardsContainer.add(MenuPanelBuilder.buildGameOverPanel(), "GameOver");
                 cardLayout.show(cardsContainer, "GameOver");
                 break;
             case "NEW_RECORD":
+                cardsContainer.add(MenuPanelBuilder.buildNewRecordPanel(), "NewRecord");
                 cardLayout.show(cardsContainer, "NewRecord");
                 break;
             case "SUBMIT!":
@@ -113,6 +118,10 @@ public class MainFrame extends JFrame implements ActionListener {
 
     public static void addScore(int score) {
         playerScore += score;
+    }
+
+    public static void resetScore() {
+        playerScore = 0;
     }
 
     public static int getDifficulty() {
