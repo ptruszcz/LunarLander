@@ -17,5 +17,6 @@ public class MainClass {
         //System.out.println(Arrays.toString(parsers.Parser.getSpotcoords("1", "1")));
         //System.out.println(Arrays.toString(parsers.Parser.getSpotcoords("1", "2")));
 
+
     }
 }

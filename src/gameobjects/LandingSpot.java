@@ -38,4 +38,5 @@ public class LandingSpot implements Drawable {
         g.setColor(Color.red);
         g.fillRect((int)coordinate.getX(), (int)coordinate.getY(), (int)size.getX(), (int)size.getY());
     }
+
 }

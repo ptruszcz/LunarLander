@@ -115,4 +115,5 @@ public class MainFrame extends JFrame implements ActionListener {
     public static int getDifficulty() {
         return difficulty;
     }
+
 }

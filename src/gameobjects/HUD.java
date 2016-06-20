@@ -37,6 +37,7 @@ public class HUD implements Drawable {
         if(spaceship.isPaused())
             g.drawString("Press SPACE to unpause game", GameMap.X_RESOLUTION - 200, 20);
 
+
         /*
         switch (spaceship.getState()) {
             case PAUSED:

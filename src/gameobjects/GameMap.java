@@ -41,4 +41,5 @@ public class GameMap implements Drawable {
         spot1.draw(g);
         spot2.draw(g);
     }
+
 }

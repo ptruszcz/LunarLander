@@ -244,6 +244,7 @@ public class GamePanel extends JPanel {
         livesLeft--;
     }
 
+
     @Override
     public void paintComponent(Graphics g) {
 
