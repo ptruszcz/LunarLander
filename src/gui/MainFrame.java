@@ -69,16 +69,19 @@ public class MainFrame extends JFrame implements ActionListener {
             case "EASY":
                 cardLayout.show(cardsContainer, "Game");
                 difficulty = 1;
+                GamePanel.resetLives();
                 gamePanel.startGame();
                 break;
             case "MEDIUM":
                 cardLayout.show(cardsContainer, "Game");
                 difficulty = 2;
+                GamePanel.resetLives();
                 gamePanel.startGame();
                 break;
             case "HARD":
                 cardLayout.show(cardsContainer, "Game");
                 difficulty = 3;
+                GamePanel.resetLives();
                 gamePanel.startGame();
                 break;
             case "GAME_OVER":

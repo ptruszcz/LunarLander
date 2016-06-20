@@ -180,6 +180,7 @@ public class GamePanel extends JPanel {
 
     public void stopGame() {
         timer.cancel();
+        pressedKeysList.clear();
     }
 
     private void restart() {
@@ -216,7 +217,7 @@ public class GamePanel extends JPanel {
             context.actionPerformed(new ActionEvent(this, 0, "GAME_OVER"));
     }
 
-    private void resetLives() {
+    public static void resetLives() {
         setLivesLeft(STARTING_LIVES);
     }
 
